@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS SECTION (THE STYLE)
+           Here we set up the colors, fonts, and layout. 
+        */
+
+        :root {
+            /* Your Theme Colors - Change these hex codes to tweak the vibe! */
+            --light-beige: #F4F1EA;
+            --muted-navy: #2B3A4A;
+            --navy-hover: #3E546B;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--light-beige);
+            color: var(--muted-navy);
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* --- HEADER & HERO --- */
+        header {
+            padding: 10vh 10%;
+            border-bottom: 2px solid var(--muted-navy);
+        }
+
+        h1 {
+            font-family: 'Comfortaa', cursive; /* This is the new round font */
+            font-size: clamp(3rem, 8vw, 6rem); 
+            text-transform: uppercase;
+            line-height: 1.1;
+             letter-spacing: -1px; /* Rounded fonts look better with less letter spacing */
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            max-width: 500px;
+        }
+
+        /* --- MARQUEE (The Alex Beige scrolling effect) --- */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            border-bottom: 2px solid var(--muted-navy);
+            padding: 15px 0;
+            background-color: var(--muted-navy);
+            color: var(--light-beige);
+        }
+
+        .marquee-content {
+            display: inline-block;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: scrollText 15s linear infinite; /* 15s is the speed */
+        }
+
+        /* This creates the infinite scroll illusion */
+        @keyframes scrollText {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- PROJECTS LIST (The Brett Land minimal layout) --- */
+        .projects {
+            padding: 0 10%;
+        }
+
+        .project-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--muted-navy);
+            text-decoration: none;
+            color: var(--muted-navy);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-item:hover {
+            background-color: var(--muted-navy);
+            color: var(--light-beige);
+            padding-left: 20px; /* Gives a cool indent effect on hover */
+        }
+
+        .project-title {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .project-role {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 50px 10%;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        a.email-link {
+            color: var(--muted-navy);
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-bottom 0.3s ease;
+        }
+
+        a.email-link:hover {
+            border-bottom: 2px solid var(--muted-navy);
+        }
+
+        .cv-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 24px;
+            border: 2px solid var(--muted-navy);
+            color: var(--muted-navy);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .cv-button:hover {
+            background-color: var(--muted-navy);
+            color: var(--light-beige);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Isabella Qian</h1>
+        <p class="subtitle">With a Master's in Child Psychology, I build digital experiences, write interactive fiction, and map out the best places to study in London.</p>
+       
+        <br>
+      <a href="cv.html" class="cv-button">View My CV</a>
+    </header>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <span>CHILD PSYCHOLOGY • UX DESIGN • TWINE GAMES • WEB DEV • BILINGUAL STORYTELLING (ZH/EN) • </span>
+            <span>CHILD PSYCHOLOGY • UX DESIGN • TWINE GAMES • WEB DEV • BILINGUAL STORYTELLING (ZH/EN) • </span>
+            <span>CHILD PSYCHOLOGY • UX DESIGN • TWINE GAMES • WEB DEV • BILINGUAL STORYTELLING (ZH/EN) •</span>
+        </div>
+    </div>
+
+  <section class="projects">
+        
+        <a href="https://ivebeanworking.com" target="_blank" class="project-item">
+            <div class="project-title">ivebeanworking • London Study Spots</div>
+            <div class="project-role">Web App • UI/UX</div>
+        </a>
+        
+        <div class="project-item" onclick="underConstruction()">
+            <div class="project-title">Twine Games</div>
+            <div class="project-role">Game Dev • Narrative Design</div>
+        </div>
+
+        <div class="project-item" onclick="underConstruction()">
+            <div class="project-title">短篇小说 (Short Stories)</div>
+            <div class="project-role">Author • Creative Writing</div>
+        </div>
+
+    </section>
+
+    <footer>
+        <a href="mailto:qianworkcontact@gmail.com" class="email-link">qianworkcontact@gmail.com</a>
+        <p style="margin-top: 20px; font-size: 0.9rem;">© <span id="currentYear"></span> Bel. Hand-coded with Spanish Latte.</p>
+    </footer>
+
+    <script>
+        // 1. This updates the copyright year automatically
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+        // 2. This is a simple interactive popup when you click a project
+        function projectClick(projectName) {
+            alert("You clicked on " + projectName + "! Eventually, you can use JavaScript to make this open a new page or a cool popup window.");
+        }
+    </script>
+<script>
+        // 1. This updates the copyright year automatically
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+        // 2. The cute "Under Construction" popup
+        function underConstruction() {
+            alert("🚧 Pardon the pixel dust! 🚧\n\nI am still writing the code (and brewing the tea) for this section. Please check back soon!");
+        }
+    </script>
+</body>
+</html>
