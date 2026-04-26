@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Identity & Emerging Adulthood | Science Communication</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --night-base: #15121A;       
+            --cream-text: #E3D8C1;       
+            --gold-accent: #DEBFA0;      
+            --navy-paper: #1A2238;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        /* THE STARRY BACKGROUND (Matching your main page) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: -15px; left: -15px; right: -15px; bottom: -15px;
+            background-image: url('YOUR-NIGHTSKY-BACKGROUND.png'); /* Ensure this filename matches your image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; 
+            filter: blur(8px) brightness(0.4); 
+            z-index: -10; 
+        }
+
+        body {
+            background-color: var(--night-base); 
+            color: var(--cream-text);
+            font-family: 'Lora', serif;
+            line-height: 1.7;
+            padding: 40px 5%;
+        }
+
+        /* --------------------------------------
+           PROFESSIONAL ESSAY CONTAINER
+           -------------------------------------- */
+        .essay-container {
+            max-width: 850px;
+            margin: 40px auto 100px auto;
+            background: #FDFDFD; /* Clean paper white */
+            color: var(--navy-paper);
+            padding: 80px 60px;
+            border-radius: 2px;
+            box-shadow: 0 30px 90px rgba(0,0,0,0.6);
+            position: relative;
+        }
+
+        /* Subtle Paper Texture Overlay */
+        .essay-container::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .essay-header {
+            text-align: center;
+            border-bottom: 2px solid #9E7449;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+        }
+
+        .essay-header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--navy-paper);
+            margin-bottom: 10px;
+        }
+
+        .essay-meta {
+            font-family: 'Cinzel', serif;
+            color: #9E7449;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* Scientific Callout Box */
+        .theory-box {
+            background: #E1EEF6; 
+            border-left: 5px solid #9E7449;
+            padding: 25px;
+            margin: 40px 0;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .theory-box strong {
+            font-family: 'Cinzel', serif;
+            display: block;
+            margin-bottom: 10px;
+            color: #9E7449;
+            font-style: normal;
+        }
+
+        .essay-content p {
+            margin-bottom: 25px;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            text-shadow: none; /* No shadow on white paper for readability */
+        }
+
+        .essay-content h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            margin: 40px 0 20px 0;
+            color: #9E7449;
+            border-bottom: 1px solid rgba(158, 116, 73, 0.2);
+        }
+
+        /* Navigation Links */
+        .nav-links {
+            max-width: 850px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Cinzel', serif;
+        }
+
+        .back-btn {
+            color: var(--gold-accent);
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover { color: white; letter-spacing: 1px; }
+
+        @media (max-width: 768px) {
+            .essay-container { padding: 40px 25px; margin-top: 20px; }
+            .essay-header h1 { font-size: 1.8rem; }
+        }
+
+        /* Unified, professional body text size */
+        .essay-content p {
+            margin-bottom: 25px;
+            font-size: 1.1rem; /* Uniform size for all paragraphs */
+            line-height: 1.8;
+            text-align: justify; /* Optional: adds a crisp "journal" look */
+            text-shadow: none; 
+            color: #2D3748; /* Slightly softer than pure black for eye comfort */
+        }
+
+        /* Ensuring strong tags and lists stay uniform too */
+        .essay-content strong, .essay-content li {
+            font-size: 1.1rem;
+        }
+        /* Unified font size and identical word spacing */
+        .essay-content p {
+            margin-bottom: 25px;
+            font-size: 1.1rem; 
+            line-height: 1.8;
+            
+            /* FIX: This ensures every space between words is the same size */
+            text-align: left; 
+            letter-spacing: normal;
+            word-spacing: normal;
+            
+            text-shadow: none; 
+            color: #2D3748; 
+        }
+
+        /* --------------------------------------
+           APA REFERENCE STYLING
+           -------------------------------------- */
+        .references-section {
+            margin-top: 60px;
+            border-top: 1px solid rgba(158, 116, 73, 0.2);
+            padding-top: 30px;
+        }
+
+        .references-section h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: #1A2238;
+            margin-bottom: 20px;
+            text-align: center; /* APA headings are usually centered */
+        }
+
+        .apa-ref {
+            padding-left: 36px; /* The indent width */
+            text-indent: -36px; /* Pulls the first line back */
+            margin-bottom: 15px;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #2D3748;
+        }
+
+        .apa-ref i {
+            font-style: italic; /* Journals and Books must be italicized */
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="nav-links">
+        <a href="index.html" class="back-btn">← Back to Portfolio</a>
+        <span style="color: var(--gold-accent); opacity: 0.6;">Science Communication Sample</span>
+    </nav>
+
+ <article class="essay-container">
+        <header class="essay-header">
+            <div class="essay-meta">Academic Sample • Psychology</div>
+            <h1>Stuck in the Loading Bar in Real Life: Crafting an Adult Self Through the Digital World</h1>
+            <p style="font-style: italic; color: #555;">Digital Identity & Emerging Adulthood</p>
+        </header>
+
+        <section class="essay-content">
+
+            <div class="theory-box">
+            <strong>Abstract </strong>
+            Remember the time you were stuck on the loading page for your favourite video games? For many people leaving their teens, the path to adulthood can be filled with a similar kind of dread. It feels like the last week of summer holidays: the homework of finding a career and your own place is waiting, and it feels impossible. Meanwhile, your favourite video game is calling to you—a world that promises mastery, clear goals, and a sense of accomplishment. When you have a choice, why would you not pick up a video game controller? Surprisingly, the hours people spend digitally can be a way for their brain to practise for the future. In this article, we will unpack the science behind how the digital world impacts the young people that has just started their adulthood but also quite not there yet! 
+            </div>
+
+            <p>
+            <h2>Why Does Real Life Sometimes Feel Like a Broken Game?</h2>
+
+            When we imagine the stages of life, we usually think about our childhood, adolescence and adulthood. However, a whole new chapter has recently been proposed - Emerging Adulthood (Arnett, 2000). This is a unique period from your late teens to mid-twenties when you are no longer an adolescent and the new adult life has just emerged. This stage is full of exploration, instability, and a feeling of being 'in-between'. 
+
+            Researchers have also found an interesting experience of people in emerging adulthood facing challenges in becoming the role they want to become. This situation is named the 'locked-out' quarter-life crisis (Robinson, 2015). Imagine you are new to a city-building game. You see your friends building empires, and you want to do that too. You have the skills and the desire, but there's a problem: every time you try to mine for resources, the game tells you 'Permission Denied.' The basic building blocks are locked away, and there's no way to progress. This feeling of being blocked from even starting is what the 'locked-out' crisis feels like, and it often includes repeated rejections by potential jobs and partners, which can lower self-esteem and lead to emotional instability. 
+            </p>
+
+            <p>
+            <h2>Knowing the Rules vs. Playing the Game</h2>
+
+            To understand why this feels so bad, we can look to psychoanalysis, which is the study of our inner world. This can be our feelings, thoughts, and motivations that we are not aware of. The famous psychoanalyst Sigmund Freud once said that the signs of a mature adult life are simple: the ability to work and to love (Waddell, 2002) . Today's emerging adults have read this game guide. The crisis comes when external factors like a tough job market or high housing costs block them from actually building that life. Decades ago, psychoanalyst Bion explained in 1970, there is a huge difference between passively knowing about reality and actively becoming real through lived experience.
+
+            By the age of twenty, society expects you to be an adult. You might look like an adult because of your age, but instead, your reality is full of dependence and instability. The emerging adult can then feel like an impostor due to this mismatch. Psychoanalytically, it is called the 'burden of inauthenticity'  (Waddell, 2002). When faced with this internal crisis, it is tempting for them to look for an external solution: “It is only when I get a job that I can finally be an adult”. However, this can further increase their stress. It is like when you are stuck at a hard level in a video game and you decide to get a cool skin. You may look more powerful, but you have not gained the skills to level up. In the same way, chasing a status cannot help you to build an ideal self, and the feeling of being an impostor only gets worse.
+
+            When the main quest of life feels bugged, a player finds a better playground - in this case, being the digital world. 
+            </p>
+
+            <div class="theory-box">
+            <strong> Gaining Independence 3.0: Practising the Final Step to Adulthood </strong>
+
+            We talked about how hard this transition to adulthood can be. In psychoanalysis, this period can also be called the 'third separation-individuation' process (Miller, 2017). After toddlerhood and adolescence, this period is considered to be the third time we have to separate from our family and our childhood self, and become an independent individual. Playing in the digital world with your avatar, then is not only about feeling good for the moment, but also helps you go through this developmental process. 
+            </div> 
+
+            <p>
+            The avatar in this case continues the separation-individuation in the digital world. It then becomes an environment for emerging adults to feel empowered. You can connect with other people online, escape from real-life problems, and get things you need emotionally. In the digital world, your school grades, your job, and your real-life failures do not matter. You can be anyone and do anything, and in psychoanalysis, it is called a sense of ‘omnipotence’ (Freeman 2012). Your idealised avatar, as an ‘object of perfection’, you can finally experience what it feels like to be successful. This not only helps you to overcome real-life burdens, but also gives you the chance to practice the skills and confidence to face real-world events. 
+            </p>
+
+            <p>
+            <h2>Childhood Teddy Bear Behind the Screen: Finding Safety in a Digital World</h2>
+
+            Now we are wondering how does digital world makes young adults feel good? In this digital environment, researchers Koles and Nagy (2016) suggest it can provide what they call a ‘transitional space’ in psychoanalysis. It is the space where transitions between the real world and fantasy exist. For emerging adults experiencing the locked-out crisis and real-life rejections, the digital space can be a safe haven for them. It is like a beginner game mode for young adults, where they can skill up and gain a sense of control in a world with clear rules and rewards. It bridges who you are and who you want to be. 
+
+            In this beginner mode, emerging adults can create their avatars. From a psychoanalytic perspective, this avatar is thought to act as their childhood teddy bear to comfort them. Psychoanalyst Winnicott coined the term ‘transitional objects’ in 1951, where you use objects can help your feelings transition to the real world. When you are younger, your teddy can help you through the transition from being a baby to a more independent person by providing comfort and security. And for emerging adults, the online avatar also helps them in the same way.
+            </p>
+
+
+
+            <p>
+            <h2>The Ingredients for a Happy Brain: Competence, Control, and Connection</h2>
+
+            Now we can take a closer look at why specifically the digital world makes our brain feel that way. 
+
+            According to what psychologists Mayseless and Keren (2014) have written, all humans have three basic psychological needs under a psychological framework. Researcher Ryan and Deci (2000) specify that this includes competence, autonomy and relatedness. When these needs are met, we feel like our life has meaning. Scientist Palaus and colleagues in 2017 found out that video games can train out brains physically while meeting these needs. The problem for emerging adults is that it is very hard to meet these needs in the real world, but not in the digital world. 
+            Competence: From Impostor to Master
+            Competence is about having control over the outcome and feeling of mastering a certain skill. When you finally master a skill combo and beat the boss, you feel satisfied with what you have achieved. This feeling is a powerful remedy to the psychoanalytic 'burden of inauthenticity'. It is way less likely to feel like an impostor when the game is giving you constant, real-time proof of your skill. In the digital world, every small achievement you receive for your progress is a confirmation of your competence.
+            When your brain is engaged intensely in mastering new skills, it is like a workout for your brain's control centre: the prefrontal cortex (PFC). Many scientists, including Anderson and colleagues (2011) and Bavelier and colleagues (2012b), have figured out that the PFC is responsible for decision making, logical thinking, and goal seeking. Specifically within the PFC, the anterior cingulate cortex is like a focus elixir for your brain. It helps you focus on what is important and ignore distractions. While you can grow your competence in games, you also make your brain stronger to focus on different tasks!
+            </p>
+
+            <p>
+            <h2>Autonomy: Authoring Your Own Story</h2>
+
+            Autonomy refers to one’s ability to act according to how they want and having the power to decide what the next steps are. In a role-playing game, you can make whatever decision you want in shaping the ending of the story. This is crucial for the psychoanalytic journey of 'separation-individuation', because you are practicing being an independent individual who authors their own life. You can make constant, meaningful choices according to what you think is right and good. 
+
+            Why does making choices feel so good? Whenever you make a good choice and get a reward in a game, scientists Weber and colleagues in 2009 found out that the part of your brain called the striatum starts to work. It is like a button to release what makes you feel happy, and the happiness comes from a chemical called dopamine. When you feel so happy, you want more of it! When the real world feels so unrewarding, you always have the motivation to go back to the digital world. 
+            </pp>
+
+            <p>
+            <h2> Relatedness: Finding Your People, Finding Yourself </h2>
+
+            Relatedness includes being connected to and interacting with others, and caring for them. In real life, the locked-out crisis can make you feel isolated. In the digital world, you can make friends, play in a team, help each other, and celebrate winning together. This is more than just friendship, but more about finding a role and a place in a community where you are valued. This social safety allows the 'transitional object' of the avatar to flourish, helping you test out a new social self in a safe 'transitional space' (Koles & Nagy, 2016). 
+
+            This social learning also has a physical effect on the brain. Researchers Kühn and colleagues in 2013 showed that playing the same games can lead to the area called the hippocampus to grow. This area acts as a station in your brain that saves the information and builds a mental map of the world. When you interact with your gaming teammates, your brain not only fulfils its needs for relatedness.  It is also physically saving your mental progress in your brain. 
+
+            So, when you put it all together, you can see why the game world feels so powerful. It constantly delivers the three things the emerging adults crave: a sense of competence, the freedom of autonomy, and the warmth of relatedness. As an additional gift, the brain is also stronger now to face the real world. 
+            </p>
+
+
+            <p>
+            <h2>Are All Emerging Adults Feeling the Same Way? </h2>
+
+            Now, you know a bit more about the emerging adults and the digital world. But is this experience the same for everyone around this stage? Is there anything not so good about the digital world? To look at its full picture, psychologists found that it is complicated to answer those questions with different aspects considered. 
+            <div class="theory-box">
+            Not all scientists think emerging adulthood is a stage for everyone. Researchers such as Rosenberger have argued in 2007 that instead of a stage everyone experiences, the problems and locked-out crisis people face are just the lifestyles of young people in richer countries experience. Researcher Lewis in 1997 has also mentioned the constraint it might have for expecting young people to follow a certain future path, such as buying a house, getting a long-term partner, and having a committed job. It is also debated that for many young people, especially from working-class backgrounds or those who do not go to university, they are the 'forgotten half' (Arnett & Tanner, 2011) in this stage. They do not have the economic and social support to get the freedom to explore different options in this period of time. 
+            </div>
+
+            However, as everyone’s situation could be different, the digital world is crucial to be a universal remedy. Kloep and Hendry (2011) have also acknowledged that the resources and challenges everyone faces would be different. To grow and mature, they proposed that people need to face a challenge slightly greater than their current resources. It is just like you are almost there to win this enemy, but you just need a few more games to perfect your skill combo. Perhaps for any young person, the challenges of the real world could be high, and their resources feel very low. Then the digital world can provide a different space for them to build competence and self-esteem where the challenges feel more manageable. By then, they can have more psychological ‘resource’ to face the real-life challenge once again to learn, adapt, and achieve growth. 
+            </p>
+            <p>
+            <h2>The Two Sides of the Digital Coin: Are You Levelling Up or Just Getting Stuck?</h2>
+
+            Perhaps now you will think whether the digital world is ultimately good for emerging adults? 
+
+            On one hand, the answer is ‘yes’ as you have seen from the evidence on gaming. Furthermore, gaming can boost your imagination. You are earning XP in skills such as spotting patterns in the enemy’s play style, synthesising different materials in your brain like crafting a strong weapon from different items, and modelling and building mini-versions of things in real life to see how they work (Root-Bernstein, 2020). Researchers Lau and colleagues (2017) have also found that specially designed games not for entertainment can even help in treating mental health issues! 
+
+            On the other hand, there is a potential for young people to get stuck in the digital world. Remember the powerful button that makes your brain feel so happy? This dopamine reward system can sometimes get hijacked by games. Researchers Paulaus and colleagues (2017) explained, sometimes people want to play video games so much that it takes over their real life. Imagine every time you play games, that button makes your brain ultra hyper. However, when you do something fun in real life, that button does almost nothing - it feels wrong! It is why some people get addicted to playing video games. Some scientists think that the link between creativity and mental health can determine whether someone’s button breaks more easily. Researcher Carson (2019) suggested that perhaps the same brain networks can fuel incredible creativity in some people, but for others, it can increase the risk for mental health struggles.
+            </p>
+
+            <p>
+            <h2>A Powerful Tool, Not a Perfect Solution</h2>
+
+            The digital world is a powerful tool for navigating the challenges of emerging adulthood, but it is not a perfect solution. The next time you feel like you want to log on, you now know what is happening. Your brain is not just seeking fun, but also on a quest to feel competent, in control, and connected. For emerging adults, maybe they are not just escaping reality. By crafting avatars, mastering game systems, and building communities, they are also levelling up in real life. 
+            </p>
+
+
+            <div class="references-section">
+            <h2>References</h2>
+
+            <p class="apa-ref">
+                Anderson, J. R., Bothell, D., Fincham, J. M., Anderson, A. R., Poole, B., & Qin, Y. (2011). Brain regions engaged by part-and whole-task performance in a video game: A model-based test of the decomposition hypothesis. <i>Journal of Cognitive Neuroscience</i>, <i>23</i>(12), 3983–3997. <a href="https://doi.org/10.1162/jocn_a_00033">https://doi.org/10.1162/jocn_a_00033</a>
+            </p>
+
+            <p class="apa-ref">
+                Arnett, J. J. (2000). Emerging adulthood: A theory of development from the late teens through the twenties. <i>American Psychologist</i>, <i>55</i>(5), 469–480. <a href="https://doi.org/10.1037/0003-066X.55.5.469">https://doi.org/10.1037/0003-066X.55.5.469</a>
+            </p>
+
+            <p class="apa-ref">
+                Arnett, J. J., & Tanner, J. L. (2011). Themes and variations in emerging adulthood across social classes. In <i>Debating emerging adulthood: Stage or process</i> (pp. 31–50). Oxford University Press. <a href="https://doi.org/10.1093/acprof:oso/9780199757176.003.0003">https://doi.org/10.1093/acprof:oso/9780199757176.003.0003</a>
+            </p>
+
+            <p class="apa-ref">
+                Bavelier, D., Green, C. S., Pouget, A., & Schrater, P. (2012). Brain plasticity through the life span: Learning to learn and action video games. <i>Annual Review of Neuroscience</i>, <i>35</i>(1), 391–416. <a href="https://doi.org/10.1146/annurev-neuro-060909-152832">https://doi.org/10.1146/annurev-neuro-060909-152832</a>
+            </p>
+
+            <p class="apa-ref">
+                Bion, W. R. (1970). <i>Attention and interpretation: A scientific approach to insight in psycho-analysis and groups</i>. Routledge. <a href="https://doi.org/10.4324/9781315014067">https://doi.org/10.4324/9781315014067</a>
+            </p>
+
+            <p class="apa-ref">
+                Carson, S. H. (2019). Creativity and mental illness. In J. C. Kaufman & R. J. Sternberg (Eds.), <i>The Cambridge handbook of creativity</i> (pp. 296–318). Cambridge University Press. <a href="https://doi.org/10.1017/9781316979839">https://doi.org/10.1017/9781316979839</a>
+            </p>
+
+            <p class="apa-ref">
+                Freeman, P. (2012). First brief communication: The resilience of illusion. <i>International Journal of Applied Psychoanalytic Studies</i>, <i>9</i>(1). <a href="https://doi.org/10.1002/aps.323">https://doi.org/10.1002/aps.323</a>
+            </p>
+
+            <p class="apa-ref">
+                Kloep, M., & Hendry, L. B. (2011). A systemic approach to the transitions to adulthood. In <i>Debating emerging adulthood: Stage or process</i> (pp. 53–76). Oxford University Press. <a href="https://doi.org/10.1093/acprof:oso/9780199757176.003.0004">https://doi.org/10.1093/acprof:oso/9780199757176.003.0004</a>
+            </p>
+
+            <p class="apa-ref">
+                Koles, B., & Nagy, P. (2016). Avatars as transitional objects: The impact of avatars and digital objects on adolescent gamers. <i>Journal of Gaming & Virtual Worlds</i>, <i>8</i>(3), 279–296. <a href="https://doi.org/10.1386/jgvw.8.3.279_1">https://doi.org/10.1386/jgvw.8.3.279_1</a>
+            </p>
+
+            <p class="apa-ref">
+                Kühn, S., Gleich, T., Lorenz, R. C., Lindenberger, U., & Gallinat, J. (2014). Playing Super Mario induces structural brain plasticity: Gray matter changes resulting from training with a commercial video game. <i>Molecular Psychiatry</i>, <i>19</i>(2), 265–271. <a href="https://doi.org/10.1038/mp.2013.120">https://doi.org/10.1038/mp.2013.120</a>
+            </p>
+
+            <p class="apa-ref">
+                Lau, H. M., Smit, J. H., Fleming, T. M., & Riper, H. (2017). Serious games for mental health: Are they accessible, feasible, and effective? A systematic review and meta-analysis. <i>Frontiers in Psychiatry</i>, <i>7</i>, 209. <a href="https://doi.org/10.3389/fpsyt.2016.00209">https://doi.org/10.3389/fpsyt.2016.00209</a>
+            </p>
+
+            <p class="apa-ref">
+                Lewis, M. D. (1994). Personality self-organization: Cascading constraints on cognition-emotion interaction. In <i>Dynamics and indeterminism in developmental and social processes</i> (pp. 193–216). Psychology Press. <a href="https://doi.org/10.4324/9781315806211">https://doi.org/10.4324/9781315806211</a>
+            </p>
+
+            <p class="apa-ref">
+                Mayseless, O., & Keren, E. (2014). Finding a meaningful life as a developmental task in emerging adulthood: The domains of love and work across cultures. <i>Emerging Adulthood</i>, <i>2</i>(1), 63–73. <a href="https://doi.org/10.1177/2167696813515446">https://doi.org/10.1177/2167696813515446</a>
+            </p>
+
+            <p class="apa-ref">
+                Miller, J. M. (2017). Young or emerging adulthood: A psychoanalytic view. <i>The Psychoanalytic Study of the Child</i>, <i>70</i>(1), 8–21. <a href="https://doi.org/10.1080/00797308.2017.1280286">https://doi.org/10.1080/00797308.2017.1280286</a>
+            </p>
+
+            <p class="apa-ref">
+                Palaus, M., Marron, E. M., Viejo-Sobera, R., & Redolar-Ripoll, D. (2017). Neural basis of video gaming: A systematic review. <i>Frontiers in Human Neuroscience</i>, <i>11</i>, 248. <a href="https://doi.org/10.3389/fnhum.2017.00248">https://doi.org/10.3389/fnhum.2017.00248</a>
+            </p>
+
+            <p class="apa-ref">
+                Robinson, O. (2015). Emerging adulthood, early adulthood, and quarter-life crisis: Updating Erikson for the twenty-first century. In <i>Emerging adulthood in a European context</i> (pp. 17–30). Routledge. <a href="https://doi.org/10.4324/9781315750620">https://doi.org/10.4324/9781315750620</a>
+            </p>
+
+            <p class="apa-ref">
+                Root-Bernstein, M. (2021). Creating imaginary worlds across the lifespan. In S. W. Russ, J. D. Hoffmann, & J. C. Kaufman (Eds.), <i>The Cambridge handbook of lifespan development of creativity</i> (pp. 327–350). Cambridge University Press. <a href="https://doi.org/10.1017/9781108755726">https://doi.org/10.1017/9781108755726</a>
+            </p>
+
+            <p class="apa-ref">
+                Rosenberger, N. (2007). Rethinking emerging adulthood in Japan: Perspectives from long‐term single women. <i>Child Development Perspectives</i>, <i>1</i>(2), 92–95. <a href="https://doi.org/10.1111/j.1750-8606.2007.00021.x">https://doi.org/10.1111/j.1750-8606.2007.00021.x</a>
+            </p>
+
+            <p class="apa-ref">
+                Ryan, R. M., & Deci, E. L. (2000). Self-determination theory and the facilitation of intrinsic motivation, social development, and well-being. <i>American Psychologist</i>, <i>55</i>(1), 68–78. <a href="https://doi.org/10.1037/0003-066X.55.1.68">https://doi.org/10.1037/0003-066X.55.1.68</a>
+            </p>
+
+            <p class="apa-ref">
+                Waddell, M. (2018). The adult world. In <i>Inside lives: Psychoanalysis and the growth of the personality</i> (pp. 195–216). Routledge. <a href="https://doi.org/10.4324/9780429475979">https://doi.org/10.4324/9780429475979</a>
+            </p>
+
+            <p class="apa-ref">
+                Weber, R., Tamborini, R., Westcott-Baker, A., & Kantor, B. (2009). Theorizing flow and media enjoyment as cognitive synchronization of attentional and reward networks. <i>Communication Theory</i>, <i>19</i>(4), 397–422. <a href="https://doi.org/10.1111/j.1468-2885.2009.01352.x">https://doi.org/10.1111/j.1468-2885.2009.01352.x</a>
+            </p>
+
+            <p class="apa-ref">
+                Winnicott, D. W. (1951). <i>Transitional objects and transitional phenomena</i>. Tavistock.
+            </p>
+        </div>
+
+
+        </section>
+
+</body>
+</html>
