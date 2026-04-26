@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae | My Indie Dream</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --night-base: #15121A;       
+            
+            /* COLORS FOR THE SKY (OUTSIDE THE BLOCKS) */
+            --sky-text: #FDFBF7;       
+            --sky-gold: #FCE6D0;      
+            
+            /* REVERSED COLORS FOR THE PANELS (INSIDE THE BLOCKS) */
+            --beige-glass: rgba(244, 238, 228, 0.95); /* Opaque creamy parchment */
+            --navy-text: #1A2238;                     /* Deep, readable navy */
+            --dark-gold: #9E7449;                     /* Vintage gold for headings */
+            --slate-accent: #54627B;                  /* Muted slate for dates/pills */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* THE BLUR & DARKEN TRICK FOR THE SKY */
+        body::before {
+            content: "";
+            position: fixed;
+            top: -15px; left: -15px; right: -15px; bottom: -15px;
+            background-image: url('YOUR-NIGHTSKY-BACKGROUND.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; 
+            filter: blur(8px) brightness(0.5); 
+            z-index: -10; 
+        }
+
+        body {
+            background-color: var(--night-base); 
+            color: var(--sky-text);
+            font-family: 'Lora', serif;
+            font-size: 1.15rem;
+            font-weight: 400;
+            line-height: 1.8;
+            padding: 0 10% 5% 10%; 
+            overflow-x: hidden;
+            /* Global text shadow for text sitting directly on the sky */
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.9); 
+        }
+
+        h1, h2, h3, h4, .cinzel-font {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        /* --------------------------------------
+           CUSTOM IMAGE NAVIGATION
+           -------------------------------------- */
+        .main-menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px; 
+            padding: 30px 0 10px 0;
+            z-index: 10; 
+            position: relative;
+        }
+
+        .nav-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 160px; 
+            height: 55px; 
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--sky-text);
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.9); 
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: transform 0.2s ease, filter 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+            color: var(--sky-gold);
+        }
+
+        .btn-home     { background-image: url('button 1.png'); }
+        .btn-about    { background-image: url('button 2.png'); }
+        .btn-projects { background-image: url('button 3.png'); }
+        .btn-blog     { background-image: url('button 4.png'); }
+        .btn-contact  { background-image: url('yellow button.png'); color: var(--night-base); text-shadow: none; }
+
+        /* --------------------------------------
+           CV HEADER (Sits on the sky)
+           -------------------------------------- */
+        .cv-header {
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+        }
+
+        .cv-header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--sky-gold);
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
+            margin-bottom: 10px;
+        }
+
+        .cv-header p {
+            color: var(--sky-text);
+            font-size: 1.3rem;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* --------------------------------------
+           CV BEIGE PANELS (Reversed Colors)
+           -------------------------------------- */
+        .cv-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cv-section {
+            background: var(--beige-glass);
+            border: 2px solid rgba(255, 255, 255, 0.4); /* Soft white border */
+            border-radius: 8px;
+            padding: 40px 50px;
+            margin-bottom: 50px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5); /* Strong drop shadow onto the sky */
+            
+            /* Overriding text colors for inside the panel */
+            color: var(--navy-text);
+            text-shadow: none; /* Removed shadows so dark text is sharp */
+        }
+
+        .cv-section h2 {
+            font-size: 2rem;
+            color: var(--dark-gold);
+            margin-bottom: 30px;
+            text-shadow: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cv-section h2::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--dark-gold);
+            opacity: 0.3;
+        }
+
+        /* --------------------------------------
+           CV ITEMS 
+           -------------------------------------- */
+        .cv-item {
+            margin-bottom: 35px;
+        }
+
+        .cv-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .cv-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .cv-item-title {
+            font-size: 1.5rem;
+            color: var(--navy-text);
+            font-weight: 700;
+        }
+
+        .cv-item-date {
+            font-family: 'Cinzel', serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--slate-accent);
+            background: rgba(84, 98, 123, 0.1);
+            padding: 4px 12px;
+            border-radius: 4px;
+            border: 1px solid rgba(84, 98, 123, 0.2);
+        }
+
+        .cv-item-subtitle {
+            font-family: 'Cinzel', serif;
+            color: var(--dark-gold);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .cv-item ul {
+            list-style: none;
+            margin-left: 10px;
+        }
+
+        .cv-item ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+
+        .cv-item ul li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: var(--dark-gold);
+            font-size: 0.9rem;
+            top: 2px;
+        }
+
+        /* --------------------------------------
+           FOOTER & BUTTON (Sits on the sky)
+           -------------------------------------- */
+        footer {
+            margin-top: 80px;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .stylized-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 280px;
+            height: 65px;
+            margin: 50px auto 0 auto;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--sky-text);
+            text-decoration: none;
+            background: transparent;
+            border: none;
+            background-image: url('small button.png');
+            background-size: 100% 100%; 
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.9);
+        }
+
+        .stylized-button:hover {
+            transform: scale(1.03);
+            filter: brightness(1.1);
+            color: var(--sky-gold);
+        }
+
+        @media (max-width: 768px) {
+            .cv-section { padding: 30px 20px; }
+            .cv-item-header { flex-direction: column; }
+            .cv-item-date { align-self: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="main-menu">
+        <a href="/" class="nav-btn btn-home">Home</a>
+        <a href="/about/" class="nav-btn btn-about">About</a>
+        <a href="/projects/" class="nav-btn btn-projects">Projects</a>
+        <a href="/blog/" class="nav-btn btn-blog">Blog</a>
+    </nav>
+
+    <div class="cv-container">
+        
+        <header class="cv-header">
+            <h1>Curriculum Vitae</h1>
+            <p>Isabella Qian</p>
+        </header>
+
+        <section class="cv-section">
+            <h2>Education</h2>
+            
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <h3 class="cv-item-title">MSc Early Child Development & Clinical Applications</h3>
+                    <span class="cv-item-date">2024 – Present</span>
+                </div>
+                <div class="cv-item-subtitle">University College London (Anna Freud Centre)</div>
+                <ul>
+                    <li><strong>Result:</strong> Distinction (Year 1 Interim)</li>
+                    <li><strong>Focus:</strong> Developmental psychopathology, preventative mental health, and clinical psychoanalytic concepts.</li>
+                    <li><strong>Dissertation:</strong> Qualitative Experience of Online Couple Psychotherapy.</li>
+                </ul>
+            </div>
+
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <h3 class="cv-item-title">BSc Psychology</h3>
+                    <span class="cv-item-date">2021 – 2024</span>
+                </div>
+                <div class="cv-item-subtitle">Durham University</div>
+                <ul>
+                    <li><strong>Result:</strong> 2:1</li>
+                    <li><strong>Skills:</strong> Qualitative & Quantitative Research, Statistical Analysis (SPSS, JASP, Qualtrics).</li>
+                    <li><strong>Dissertation:</strong> Correlation between future-oriented thinking, self-compassion, and health-promoting behaviors.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="cv-section">
+            <h2>Clinical & Research Experience</h2>
+
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <h3 class="cv-item-title">Assistant Psychologist</h3>
+                    <span class="cv-item-date">2025 – Present</span>
+                </div>
+                <div class="cv-item-subtitle">Central & North West London NHS Trust</div>
+                <ul>
+                    <li>Design materials and lead psychoeducational groups focused on mentalising.</li>
+                    <li>Develop Quality Improvement (QI) materials and actively shadow clinical assessments.</li>
+                </ul>
+            </div>
+
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <h3 class="cv-item-title">Clinical Child Care Research Intern</h3>
+                    <span class="cv-item-date">2023</span>
+                </div>
+                <div class="cv-item-subtitle">Mother’s Choice</div>
+                <ul>
+                    <li>Assisted in the "Cuddle Me" early intervention pilot program for infants in out-of-home care.</li>
+                    <li>Conducted clinical observations and provided hands-on developmental care for infants and SEN children.</li>
+                    <li>Researched the socio-emotional impacts of atypical development and institutional care.</li>
+                </ul>
+            </div>
+
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <h3 class="cv-item-title">Research Assistant (Multiple Projects)</h3>
+                    <span class="cv-item-date">2022 – 2024</span>
+                </div>
+                <div class="cv-item-subtitle">Durham University</div>
+                <ul>
+                    <li>Collaborated across 5 distinct psychology research projects, covering topics like curiosity, self-compassion, solitude, and human development.</li>
+                    <li>Executed end-to-end research tasks including participant interviews, qualitative data coding, and quantitative statistical analysis.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="cv-section">
+            <h2>Leadership, Advocacy & Communication</h2>
+
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <h3 class="cv-item-title">Vice President & Welfare Officer</h3>
+                    <span class="cv-item-date">Sep 2021 – Jul 2025</span>
+                </div>
+                <div class="cv-item-subtitle">Durham University International Students Association</div>
+                <ul>
+                    <li>Managed welfare drop-in services and organized university-wide events to support the international student community.</li>
+                </ul>
+            </div>
+
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <h3 class="cv-item-title">Confidential Peer Supporter</h3>
+                    <span class="cv-item-date">2023 – 2024</span>
+                </div>
+                <div class="cv-item-subtitle">Durham University Nightline</div>
+                <ul>
+                    <li>Provided active listening and emotional support to students navigating high-stress situations.</li>
+                </ul>
+            </div>
+
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <h3 class="cv-item-title">Psychology Radio Host & Producer</h3>
+                    <span class="cv-item-date">2021 – 2023</span>
+                </div>
+                <div class="cv-item-subtitle">Durham University Purple Radio</div>
+                <ul>
+                    <li>Produced and hosted engaging broadcasts translating complex behavioral and cognitive psychology concepts for general audiences.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="cv-section">
+            <h2>Awards & Achievements</h2>
+            
+            <div class="cv-item">
+                <ul>
+                    <li><strong>Global Second Place & Regional First:</strong> Tiger Global Case Competition (2020). Cracked complex business cases within a 48-hour deadline.</li>
+                    <li><strong>Shortlisted Nominee:</strong> Durham Global Award (2023). Recognized for enhancing intercultural understanding.</li>
+                </ul>
+            </div>
+        </section>
+
+        <a href="#" class="stylized-button">Download PDF</a>
+
+    </div>
+
+    <footer>
+        <p style="font-size: 0.9rem; opacity: 0.8; font-family: 'Cinzel', serif; letter-spacing: 2px;">
+            © <span id="currentYear"></span>. Powered by Dreamy Codes.
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
