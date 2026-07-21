@@ -8,11 +8,15 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Crafty+Girls&family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;1,400&family=Vibes&family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Crafty+Girls&family=Gochi+Hand&family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;1,400&family=Vibes&family=VT323&display=swap" rel="stylesheet">
     <script>
         (function () {
             try {
-                var t = localStorage.getItem("portfolio-theme");
+                var m = document.cookie.match(/(?:^|; )portfolio-theme=([^;]*)/);
+                var t = m ? decodeURIComponent(m[1]) : null;
+                if (!t) {
+                    try { t = localStorage.getItem("portfolio-theme"); } catch (e) {}
+                }
                 if (t === "dark" || (!t && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
                     document.documentElement.setAttribute("data-theme", "dark");
                 }
@@ -367,15 +371,9 @@
         /* ---------- Projects as photo / window memories ---------- */
         .projects {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 28px;
             align-items: stretch;
-            max-width: 720px;
-        }
-
-        .projects--single {
-            max-width: 760px;
-            margin: 0 auto;
         }
 
         .project-card {
@@ -472,6 +470,51 @@
                 repeating-linear-gradient(90deg, rgba(117, 106, 115, 0.2) 0 18px, transparent 18px 36px);
             opacity: 0.35;
             mask-image: linear-gradient(180deg, transparent, black);
+        }
+
+        .project-preview--themes {
+            background:
+                radial-gradient(ellipse 50% 45% at 25% 30%, rgba(180, 168, 194, 0.4), transparent 55%),
+                linear-gradient(165deg, rgba(175, 205, 190, 0.7) 0%, rgba(189, 214, 225, 0.55) 40%, rgba(117, 106, 115, 0.45) 100%);
+        }
+
+        .project-preview--themes::before {
+            inset: 22% 18% auto;
+            height: 32%;
+            border-radius: 2px;
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(238, 232, 218, 0.35) 0 10px,
+                    transparent 10px 18px
+                );
+        }
+
+        .project-preview--themes::after {
+            background:
+                repeating-linear-gradient(90deg, rgba(90, 95, 105, 0.18) 0 12px, transparent 12px 28px);
+        }
+
+        .project-preview--journal {
+            background:
+                radial-gradient(ellipse 55% 50% at 75% 25%, rgba(213, 163, 173, 0.35), transparent 55%),
+                linear-gradient(195deg, rgba(238, 232, 218, 0.85) 0%, rgba(223, 197, 143, 0.55) 45%, rgba(134, 184, 211, 0.55) 100%);
+        }
+
+        .project-preview--journal::before {
+            inset: 20% 20% auto;
+            height: 42%;
+            width: auto;
+            border-radius: 3px;
+            background: linear-gradient(180deg, rgba(247, 242, 232, 0.55), rgba(189, 214, 225, 0.2));
+            box-shadow: 0 0 20px rgba(238, 232, 218, 0.4);
+        }
+
+        .project-preview--journal::after {
+            height: 22%;
+            background:
+                repeating-linear-gradient(0deg, transparent 0 8px, rgba(117, 106, 115, 0.12) 8px 9px);
+            opacity: 0.5;
         }
 
         .project-filemeta {
@@ -774,8 +817,11 @@
 
         .reveal-on-scroll .project-card {
             transform: translateY(28px) scale(0.98);
-            transition-delay: 0.12s;
         }
+
+        .reveal-on-scroll .project-card:nth-child(1) { transition-delay: 0.08s; }
+        .reveal-on-scroll .project-card:nth-child(2) { transition-delay: 0.16s; }
+        .reveal-on-scroll .project-card:nth-child(3) { transition-delay: 0.24s; }
 
         .reveal-on-scroll.is-visible .project-card {
             opacity: 1;
@@ -830,6 +876,12 @@
         }
 
         /* ---------- Responsive ---------- */
+        @media (max-width: 1100px) {
+            .projects {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
         @media (max-width: 900px) {
             .projects {
                 grid-template-columns: 1fr;
@@ -942,7 +994,7 @@
             </h2>
             <div class="section-path" aria-hidden="true"></div>
 
-            <div class="projects projects--single">
+            <div class="projects">
 
                 <a href="sci-comm.html" class="project-card">
                     <div class="project-window">
@@ -956,6 +1008,36 @@
                         <span class="role-pill">PSYCHOLOGY / SCI-COMM</span>
                         <h3>Growing Up Digital</h3>
                         <p>How do we figure out who we are when half our lives exist on screens? Dive into my academic exploration of identity formation and emerging adulthood in the digital age.</p>
+                    </div>
+                </a>
+
+                <a href="https://thematic.ivebeanworking.com/" class="project-card" target="_blank" rel="noopener noreferrer">
+                    <div class="project-window">
+                        <div class="project-preview project-preview--abstract project-preview--themes" role="img" aria-label=""></div>
+                        <div class="project-filemeta">
+                            <span>TOOL_002.MEM</span>
+                            <span>CH.01</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="role-pill">RESEARCH / QUALITATIVE</span>
+                        <h3>Reflexive Thematic Analysis Tool</h3>
+                        <p>A tool I built to support reflexive thematic analysis—helping researchers move from raw qualitative data toward patterned meaning with space for reflection along the way.</p>
+                    </div>
+                </a>
+
+                <a href="https://reflect.ivebeanworking.com" class="project-card" target="_blank" rel="noopener noreferrer">
+                    <div class="project-window">
+                        <div class="project-preview project-preview--abstract project-preview--journal" role="img" aria-label=""></div>
+                        <div class="project-filemeta">
+                            <span>APP_003.MEM</span>
+                            <span>CH.01</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="role-pill">WELLBEING / HABITS</span>
+                        <h3>Reflective Journal</h3>
+                        <p>A reflective journal with goal tracking and daily reflection—built to turn everyday thoughts into a clearer sense of progress and intention.</p>
                     </div>
                 </a>
 

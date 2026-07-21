@@ -1,11 +1,38 @@
 (function () {
     var STORAGE_KEY = "portfolio-theme";
+    var COOKIE_MAX_AGE = 60 * 60 * 24 * 365; // 1 year
+
+    function getCookie(name) {
+        var match = document.cookie.match(
+            new RegExp("(?:^|; )" + name.replace(/([.$?*|{}()[\]\\/+^])/g, "\\$1") + "=([^;]*)")
+        );
+        return match ? decodeURIComponent(match[1]) : null;
+    }
+
+    function setCookie(name, value) {
+        document.cookie =
+            name +
+            "=" +
+            encodeURIComponent(value) +
+            "; path=/; max-age=" +
+            COOKIE_MAX_AGE +
+            "; SameSite=Lax";
+    }
 
     function getPreferredTheme() {
+        var saved = getCookie(STORAGE_KEY);
+        if (saved === "light" || saved === "dark") return saved;
+
+        // Migrate any previous localStorage preference into a cookie once
         try {
-            var saved = localStorage.getItem(STORAGE_KEY);
-            if (saved === "light" || saved === "dark") return saved;
+            var legacy = localStorage.getItem(STORAGE_KEY);
+            if (legacy === "light" || legacy === "dark") {
+                setCookie(STORAGE_KEY, legacy);
+                localStorage.removeItem(STORAGE_KEY);
+                return legacy;
+            }
         } catch (e) {}
+
         return window.matchMedia("(prefers-color-scheme: dark)").matches
             ? "dark"
             : "light";
@@ -24,8 +51,9 @@
 
     function setTheme(theme) {
         applyTheme(theme);
+        setCookie(STORAGE_KEY, theme);
         try {
-            localStorage.setItem(STORAGE_KEY, theme);
+            localStorage.removeItem(STORAGE_KEY);
         } catch (e) {}
     }
 
