@@ -250,11 +250,11 @@ html {
     50% { transform: translate(-1.5%, 1%); }
 }
 
-/* Soft custom cursor — desktop only */
+/* Wizard cat custom cursor — desktop only */
 @media (hover: hover) and (pointer: fine) {
     html.has-dream-cursor,
     html.has-dream-cursor body {
-        cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Ccircle cx='10' cy='10' r='4.5' fill='none' stroke='%2386B8D3' stroke-width='1.4' opacity='0.9'/%3E%3Ccircle cx='10' cy='10' r='1.6' fill='%23EEE8DA'/%3E%3Cpath d='M13.5 13.5 L22 22' stroke='%23B4A8C2' stroke-width='1.3' stroke-linecap='round'/%3E%3C/svg%3E") 10 10, auto;
+        cursor: url("assets/cursor-cat.png") 15 3, auto;
     }
 
     html.has-dream-cursor a,
