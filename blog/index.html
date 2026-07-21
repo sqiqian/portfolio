@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noai, noimageai">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog · Isabella Qian</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,600;1,400&family=VT323&display=swap" rel="stylesheet">
+
+    <script>
+        (function () {
+            try {
+                var m = document.cookie.match(/(?:^|; )portfolio-theme=([^;]*)/);
+                var t = m ? decodeURIComponent(m[1]) : null;
+                if (!t) {
+                    try { t = localStorage.getItem("portfolio-theme"); } catch (e) {}
+                }
+                if (t === "dark" || (!t && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+                    document.documentElement.setAttribute("data-theme", "dark");
+                }
+            } catch (e) {}
+        })();
+    </script>
+    <link rel="stylesheet" href="../theme.css">
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-size: 1.12rem;
+            font-weight: 400;
+            line-height: 1.8;
+            padding: 0 6% 5%;
+        }
+
+        body > * { position: relative; z-index: 1; }
+
+        .blog-container {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .blog-header {
+            text-align: left;
+            margin-top: 48px;
+            margin-bottom: 48px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--border-dream);
+            position: relative;
+        }
+
+        .blog-header .pixel-label {
+            margin-bottom: 8px;
+            opacity: 0.6;
+        }
+
+        .blog-header h1 {
+            font-family: "Cinzel", serif;
+            font-size: clamp(2.4rem, 5vw, 3.4rem);
+            margin-bottom: 8px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .blog-header p {
+            color: var(--dream-muted-text);
+            font-size: 1.05rem;
+            font-family: "VT323", monospace;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .blog-empty {
+            background: rgba(238, 232, 218, 0.72);
+            border: 1px solid var(--border-dream);
+            border-radius: 2px;
+            padding: 56px 40px;
+            box-shadow: var(--shadow-soft);
+            color: var(--dream-ink);
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .blog-empty::before {
+            content: "";
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            width: 28px;
+            height: 40px;
+            opacity: 0.28;
+            pointer-events: none;
+            border: 1px solid var(--dream-dusk);
+            background: linear-gradient(180deg, rgba(189, 214, 225, 0.4), transparent);
+        }
+
+        .empty-status {
+            font-family: "VT323", monospace;
+            font-size: 0.95rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--dream-muted-text);
+            margin-bottom: 18px;
+        }
+
+        .empty-status span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            margin-right: 10px;
+            border-radius: 1px;
+            background: var(--dream-sky);
+            vertical-align: middle;
+            animation: pulse-dot 1.6s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 0.35; }
+            50% { opacity: 1; }
+        }
+
+        .blog-empty h2 {
+            font-family: "Cinzel", serif;
+            font-size: clamp(1.6rem, 3vw, 2rem);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--dream-dusk);
+            margin-bottom: 16px;
+        }
+
+        .blog-empty p {
+            font-family: "Lora", serif;
+            font-size: 1.08rem;
+            line-height: 1.75;
+            color: var(--dream-ink);
+            max-width: 34em;
+            margin-bottom: 28px;
+        }
+
+        .blog-empty .stylized-button {
+            margin: 0;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-copy {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            font-family: "VT323", monospace;
+            letter-spacing: 0.12em;
+        }
+
+        @media (max-width: 768px) {
+            .blog-empty { padding: 40px 22px; }
+            body { padding: 0 5% 5%; }
+        }
+    </style>
+</head>
+<body class="dream-body">
+
+    <nav class="main-menu" aria-label="Primary">
+        <a href="/" class="nav-btn btn-home">Home</a>
+        <a href="/about/" class="nav-btn btn-about">About</a>
+        <a href="/#works" class="nav-btn btn-projects">Projects</a>
+        <a href="/blog/" class="nav-btn btn-blog" aria-current="page">Blog</a>
+        <button type="button" class="theme-toggle" aria-label="Switch to dark mode" title="Dark mode">☾</button>
+    </nav>
+
+    <div class="blog-container">
+
+        <header class="blog-header">
+            <p class="pixel-label">ARCHIVE · FIELD NOTES</p>
+            <h1>Blog</h1>
+            <p>Thoughts, notes &amp; writing</p>
+        </header>
+
+        <section class="blog-empty" aria-live="polite">
+            <p class="empty-status"><span aria-hidden="true"></span>No entries yet</p>
+            <h2>The page is blank for now</h2>
+            <p>
+                Posts will live here when they are ready — essays, process notes,
+                and whatever else finds its way onto the page. Check back soon.
+            </p>
+            <a href="/" class="stylized-button">Return Home</a>
+        </section>
+
+    </div>
+
+    <footer>
+        <p class="footer-copy">
+            © <span id="currentYear"></span>. All Rights Reserved.
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
+    <script src="../theme.js" defer></script>
+</body>
+</html>

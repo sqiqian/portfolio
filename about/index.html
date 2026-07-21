@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noai, noimageai">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About · Isabella Qian</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,600;1,400&family=VT323&display=swap" rel="stylesheet">
+
+    <script>
+        (function () {
+            try {
+                var m = document.cookie.match(/(?:^|; )portfolio-theme=([^;]*)/);
+                var t = m ? decodeURIComponent(m[1]) : null;
+                if (!t) {
+                    try { t = localStorage.getItem("portfolio-theme"); } catch (e) {}
+                }
+                if (t === "dark" || (!t && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+                    document.documentElement.setAttribute("data-theme", "dark");
+                }
+            } catch (e) {}
+        })();
+    </script>
+    <link rel="stylesheet" href="../theme.css">
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-size: 1.12rem;
+            font-weight: 400;
+            line-height: 1.8;
+            padding: 0 6% 5%;
+        }
+
+        body > * { position: relative; z-index: 1; }
+
+        .about-container {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .about-header {
+            text-align: left;
+            margin-top: 48px;
+            margin-bottom: 48px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--border-dream);
+            position: relative;
+        }
+
+        .about-header .pixel-label {
+            margin-bottom: 8px;
+            opacity: 0.6;
+        }
+
+        .about-header h1 {
+            font-family: "Cinzel", serif;
+            font-size: clamp(2.4rem, 5vw, 3.4rem);
+            margin-bottom: 8px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .about-header p {
+            color: var(--dream-muted-text);
+            font-size: 1.05rem;
+            font-family: "VT323", monospace;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .about-body {
+            background: rgba(238, 232, 218, 0.72);
+            border: 1px solid var(--border-dream);
+            border-radius: 2px;
+            padding: 44px 44px 40px;
+            box-shadow: var(--shadow-soft);
+            color: var(--dream-ink);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-body::before {
+            content: "";
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            width: 28px;
+            height: 40px;
+            opacity: 0.28;
+            pointer-events: none;
+            border: 1px solid var(--dream-dusk);
+            background: linear-gradient(180deg, rgba(189, 214, 225, 0.4), transparent);
+        }
+
+        .about-body p {
+            font-family: "Lora", serif;
+            font-size: 1.1rem;
+            line-height: 1.85;
+            color: var(--dream-ink);
+            max-width: 38em;
+            margin-bottom: 1.45em;
+        }
+
+        .about-body p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .about-actions {
+            margin-top: 36px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px 18px;
+        }
+
+        .about-actions .stylized-button {
+            margin: 0;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-copy {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            font-family: "VT323", monospace;
+            letter-spacing: 0.12em;
+        }
+
+        @media (max-width: 768px) {
+            .about-body { padding: 32px 22px; }
+            body { padding: 0 5% 5%; }
+        }
+    </style>
+</head>
+<body class="dream-body">
+
+    <nav class="main-menu" aria-label="Primary">
+        <a href="/" class="nav-btn btn-home">Home</a>
+        <a href="/about/" class="nav-btn btn-about" aria-current="page">About</a>
+        <a href="/#works" class="nav-btn btn-projects">Projects</a>
+        <a href="/blog/" class="nav-btn btn-blog">Blog</a>
+        <button type="button" class="theme-toggle" aria-label="Switch to dark mode" title="Dark mode">☾</button>
+    </nav>
+
+    <div class="about-container">
+
+        <header class="about-header">
+            <p class="pixel-label">DOCUMENT · INTRODUCTION</p>
+            <h1>About</h1>
+            <p>Isabella Qian</p>
+        </header>
+
+        <section class="about-body">
+            <p>I have always been drawn to the small details people often overlook: a shift in someone’s mood, an ordinary moment that suddenly feels meaningful, or the way a conversation can reveal more than either person intended.</p>
+            <p>A lot of my creativity begins there. I write from personal experiences, relationships, and everyday observations, often using them to explore how people grow, change, connect, and understand themselves. I am interested in the parts of life that appear simple on the surface but carry something deeper underneath.</p>
+            <p>Outside of writing, I enjoy singing, photography, socialising, video games, sports, and making things by hand. Each gives me a different way of engaging with the world. Games let me explore stories, choices, and imagined spaces. Photography encourages me to notice what might otherwise pass unnoticed. Sports bring energy and focus, while arts and crafts give me the freedom to create without needing everything to be perfect or useful.</p>
+            <p>Growth and self-discovery are central to how I live. I am always questioning what I believe, learning from experience, and trying to understand both myself and the people around me more honestly. This interest has also led me towards psychotherapy, particularly the deeper emotional patterns that shape the way people think, behave, and relate to one another.</p>
+            <p>I do not see my interests as separate categories. Writing, psychology, games, photography, technology, and creativity all come from the same place: curiosity about people and the many ways we make sense of being alive.</p>
+            <p>This portfolio is a collection of those curiosities, experiments, observations, and ideas.</p>
+
+            <div class="about-actions">
+                <a href="/cv.html" class="stylized-button">Read My CV</a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p class="footer-copy">
+            © <span id="currentYear"></span>. All Rights Reserved.
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
+    <script src="../theme.js" defer></script>
+</body>
+</html>
