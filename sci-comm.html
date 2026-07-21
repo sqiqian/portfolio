@@ -4,221 +4,211 @@
     <meta name="robots" content="noai, noimageai">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> 
-        Science Communication</title>
+    <title> Science Communication</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,700;1,400&family=VT323&display=swap" rel="stylesheet">
+
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem("portfolio-theme");
+                if (t === "dark" || (!t && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+                    document.documentElement.setAttribute("data-theme", "dark");
+                }
+            } catch (e) {}
+        })();
+    </script>
+    <link rel="stylesheet" href="theme.css">
 
     <style>
-        :root {
-            --night-base: #15121A;       
-            --cream-text: #E3D8C1;       
-            --gold-accent: #DEBFA0;      
-            --navy-paper: #1A2238;
-        }
-
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* THE STARRY BACKGROUND (Matching your main page) */
-        body::before {
-            content: "";
-            position: fixed;
-            top: -15px; left: -15px; right: -15px; bottom: -15px;
-            background-image: url('YOUR-NIGHTSKY-BACKGROUND.png'); /* Ensure this filename matches your image */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; 
-            filter: blur(8px) brightness(0.4); 
-            z-index: -10; 
-        }
-
         body {
-            background-color: var(--night-base); 
-            color: var(--cream-text);
-            font-family: 'Lora', serif;
             line-height: 1.7;
             padding: 40px 5%;
         }
 
-        /* --------------------------------------
-           PROFESSIONAL ESSAY CONTAINER
-           -------------------------------------- */
+        body > * { position: relative; z-index: 1; }
+
         .essay-container {
             max-width: 850px;
             margin: 40px auto 100px auto;
-            background: #FDFDFD; /* Clean paper white */
-            color: var(--navy-paper);
-            padding: 80px 60px;
+            background: rgba(238, 232, 218, 0.90);
+            color: var(--dream-ink);
+            padding: 72px 56px;
             border-radius: 2px;
-            box-shadow: 0 30px 90px rgba(0,0,0,0.6);
+            border: 1px solid var(--border-dream);
+            box-shadow: var(--shadow-soft);
             position: relative;
+            z-index: 1;
+            overflow: hidden;
         }
 
-        /* Subtle Paper Texture Overlay */
-        .essay-container::after {
-            content: "";
+        .essay-container::before {
+            content: "DOC · SCI-COMM";
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
-            opacity: 0.4;
+            top: 18px;
+            right: 22px;
+            font-family: "VT323", monospace;
+            font-size: 0.85rem;
+            letter-spacing: 0.12em;
+            color: var(--dream-muted-text);
+            opacity: 0.5;
             pointer-events: none;
         }
 
+        .essay-container::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.12;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-size: 160px 160px;
+            mix-blend-mode: soft-light;
+        }
+
         .essay-header {
-            text-align: center;
-            border-bottom: 2px solid #9E7449;
-            margin-bottom: 50px;
-            padding-bottom: 30px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-soft);
+            margin-bottom: 40px;
+            padding-bottom: 28px;
         }
 
         .essay-header h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 2rem;
-            color: var(--navy-paper);
+            font-family: "Cinzel", serif;
+            font-size: clamp(1.7rem, 3vw, 2.1rem);
+            color: var(--dream-ink);
             margin-bottom: 10px;
+            letter-spacing: 0.03em;
+            line-height: 1.25;
         }
 
         .essay-meta {
-            font-family: 'Cinzel', serif;
-            color: #9E7449;
-            font-size: 0.9rem;
-            letter-spacing: 3px;
+            font-family: "VT323", monospace;
+            color: var(--dream-muted-text);
+            font-size: 0.95rem;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
-            font-weight: bold;
         }
 
-        /* Scientific Callout Box */
         .theory-box {
-            background: #E1EEF6; 
-            border-left: 5px solid #9E7449;
-            padding: 25px;
-            margin: 40px 0;
+            background: rgba(189, 214, 225, 0.35);
+            border-left: 3px solid var(--dream-sky);
+            padding: 22px;
+            margin: 36px 0;
             font-style: italic;
             position: relative;
             z-index: 1;
+            border-radius: 0 2px 2px 0;
         }
 
         .theory-box strong {
-            font-family: 'Cinzel', serif;
+            font-family: "Cinzel", serif;
             display: block;
             margin-bottom: 10px;
-            color: #9E7449;
+            color: var(--dream-dusk);
             font-style: normal;
-        }
-
-        .essay-content p {
-            margin-bottom: 25px;
-            font-size: 1.15rem;
-            line-height: 1.8;
-            text-shadow: none; /* No shadow on white paper for readability */
+            letter-spacing: 0.04em;
         }
 
         .essay-content h2 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.6rem;
-            margin: 40px 0 20px 0;
-            color: #9E7449;
-            border-bottom: 1px solid rgba(158, 116, 73, 0.2);
+            font-family: "Cinzel", serif;
+            font-size: 1.45rem;
+            margin: 40px 0 18px 0;
+            color: var(--dream-dusk);
+            border-bottom: 1px solid var(--border-soft);
+            letter-spacing: 0.04em;
         }
 
-        /* Navigation Links */
         .nav-links {
             max-width: 850px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
-            font-family: 'Cinzel', serif;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
         }
 
-        .back-btn {
-            color: var(--gold-accent);
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .back-btn:hover { color: white; letter-spacing: 1px; }
-
-        @media (max-width: 768px) {
-            .essay-container { padding: 40px 25px; margin-top: 20px; }
-            .essay-header h1 { font-size: 1.8rem; }
-        }
-
-        /* Unified, professional body text size */
         .essay-content p {
             margin-bottom: 25px;
-            font-size: 1.1rem; /* Uniform size for all paragraphs */
-            line-height: 1.8;
-            text-align: justify; /* Optional: adds a crisp "journal" look */
-            text-shadow: none; 
-            color: #2D3748; /* Slightly softer than pure black for eye comfort */
-        }
-
-        /* Ensuring strong tags and lists stay uniform too */
-        .essay-content strong, .essay-content li {
             font-size: 1.1rem;
-        }
-        /* Unified font size and identical word spacing */
-        .essay-content p {
-            margin-bottom: 25px;
-            font-size: 1.1rem; 
             line-height: 1.8;
-            
-            /* FIX: This ensures every space between words is the same size */
-            text-align: left; 
+            text-align: left;
             letter-spacing: normal;
             word-spacing: normal;
-            
-            text-shadow: none; 
-            color: #2D3748; 
+            color: var(--dream-ink);
         }
 
-        /* --------------------------------------
-           APA REFERENCE STYLING
-           -------------------------------------- */
+        .essay-content strong,
+        .essay-content li {
+            font-size: 1.1rem;
+        }
+
         .references-section {
             margin-top: 60px;
-            border-top: 1px solid rgba(158, 116, 73, 0.2);
+            border-top: 1px solid var(--border-soft);
             padding-top: 30px;
         }
 
         .references-section h2 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.4rem;
-            color: #1A2238;
+            font-family: "Cinzel", serif;
+            font-size: 1.35rem;
+            color: var(--dream-ink);
             margin-bottom: 20px;
-            text-align: center; /* APA headings are usually centered */
+            text-align: center;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
 
         .apa-ref {
-            padding-left: 36px; /* The indent width */
-            text-indent: -36px; /* Pulls the first line back */
+            padding-left: 36px;
+            text-indent: -36px;
             margin-bottom: 15px;
             font-size: 1rem;
             line-height: 1.6;
-            color: #2D3748;
+            color: var(--text-primary);
         }
 
-        .apa-ref i {
-            font-style: italic; /* Journals and Books must be italicized */
+        .essay-content a {
+            color: var(--dream-dusk);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
         }
 
+        .essay-content a:hover {
+            background: rgba(189, 214, 225, 0.4);
+        }
+
+        .essay-content a:focus-visible {
+            outline: 2px solid var(--focus-ring);
+            outline-offset: 3px;
+        }
+
+        .apa-ref i { font-style: italic; }
+
+        @media (max-width: 768px) {
+            .essay-container { padding: 40px 22px; margin-top: 20px; }
+            .essay-header h1 { font-size: 1.55rem; }
+        }
     </style>
 </head>
-<body>
+<body class="dream-body">
 
     <nav class="nav-links">
         <a href="index.html" class="back-btn">← Back to Portfolio</a>
-        <span style="color: var(--gold-accent); opacity: 0.6;">Science Communication Sample</span>
+        <span style="color: var(--earth); opacity: 0.6;">Science Communication Sample</span>
+            <button type="button" class="theme-toggle" aria-label="Switch to dark mode" title="Dark mode">☾</button>
     </nav>
 
  <article class="essay-container">
         <header class="essay-header">
             <div class="essay-meta">Academic Sample • Psychology</div>
             <h1>Stuck in the Loading Bar in Real Life: Crafting an Adult Self Through the Digital World</h1>
-            <p style="font-style: italic; color: #555;">Digital Identity & Emerging Adulthood</p>
+            <p style="font-style: italic; color: var(--earth);">Digital Identity & Emerging Adulthood</p>
         </header>
 
         <section class="essay-content">
@@ -418,5 +408,6 @@
 
         </section>
 
+    <script src="theme.js" defer></script>
 </body>
 </html>
