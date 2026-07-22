@@ -572,223 +572,6 @@
             cursor: inherit;
         }
 
-        /* ---------- Memory / post-it board: doodle scrapbook ---------- */
-        .notes-board {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px 22px;
-            align-items: start;
-            position: relative;
-            z-index: 20;
-            padding: 20px 0 48px;
-        }
-
-        .memory-card {
-            position: relative;
-            padding: 34px 26px 28px;
-            min-height: 230px;
-            background: #F7F2E8;
-            border: 2px solid rgba(90, 95, 105, 0.45);
-            border-radius: 3px 14px 4px 12px / 8px 3px 16px 5px;
-            color: var(--dream-ink);
-            box-shadow:
-                3px 5px 0 rgba(90, 95, 105, 0.08),
-                0 12px 26px rgba(63, 70, 82, 0.12);
-            transition: box-shadow var(--transition-mid) ease, transform var(--transition-mid) ease;
-            margin-top: 0;
-            background-image:
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 27px,
-                    rgba(90, 95, 105, 0.06) 27px,
-                    rgba(90, 95, 105, 0.06) 28px
-                );
-        }
-
-        /* Soft washi-tape strip */
-        .memory-card::after {
-            content: "";
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            width: 72px;
-            height: 22px;
-            transform: translateX(-50%) rotate(-2deg);
-            background: linear-gradient(100deg, rgba(189, 214, 225, 0.75), rgba(213, 163, 173, 0.55));
-            border: 1px dashed rgba(90, 95, 105, 0.35);
-            box-shadow: 0 2px 6px rgba(63, 70, 82, 0.12);
-            pointer-events: none;
-            z-index: 2;
-        }
-
-        .memory-card:nth-child(1) {
-            background-color: #F0D4D9;
-            border-color: rgba(150, 110, 120, 0.55);
-            transform: rotate(-2.2deg);
-        }
-        .memory-card:nth-child(2) {
-            background-color: #F8F4EC;
-            border-color: rgba(120, 115, 140, 0.45);
-            transform: rotate(1.6deg);
-            margin-top: 10px;
-        }
-        .memory-card:nth-child(2)::after {
-            background: linear-gradient(100deg, rgba(175, 205, 190, 0.7), rgba(189, 214, 225, 0.65));
-            transform: translateX(-50%) rotate(3deg);
-        }
-        .memory-card:nth-child(3) {
-            background-color: #F2E4B8;
-            border-color: rgba(160, 140, 90, 0.55);
-            transform: rotate(-1.4deg);
-        }
-        .memory-card:nth-child(3)::after {
-            left: 28%;
-            transform: translateX(-50%) rotate(4deg);
-            background: linear-gradient(100deg, rgba(223, 197, 143, 0.8), rgba(238, 232, 218, 0.6));
-        }
-        .memory-card:nth-child(4) {
-            background-color: #EDE0AE;
-            border-color: rgba(160, 140, 90, 0.5);
-            transform: rotate(2deg);
-            margin-top: 6px;
-        }
-        .memory-card:nth-child(4)::after {
-            width: 58px;
-            transform: translateX(-50%) rotate(-5deg);
-        }
-        .memory-card:nth-child(5) {
-            background-color: #DDD4E8;
-            border-color: rgba(130, 120, 155, 0.55);
-            transform: rotate(-1.8deg);
-        }
-        .memory-card:nth-child(5)::after {
-            background: linear-gradient(100deg, rgba(180, 168, 194, 0.75), rgba(213, 163, 173, 0.5));
-            transform: translateX(-50%) rotate(2deg);
-        }
-        .memory-card:nth-child(6) {
-            background-color: #CDE0EA;
-            border-color: rgba(100, 140, 165, 0.55);
-            transform: rotate(1.2deg);
-            margin-top: 12px;
-        }
-        .memory-card:nth-child(6)::after {
-            left: 62%;
-            transform: translateX(-50%) rotate(-3deg);
-            background: linear-gradient(100deg, rgba(134, 184, 211, 0.7), rgba(175, 205, 190, 0.55));
-        }
-
-        [data-theme="dark"] .memory-card {
-            box-shadow: 2px 4px 0 rgba(0, 0, 0, 0.2), 0 10px 22px rgba(16, 22, 28, 0.35);
-            border-color: rgba(180, 188, 196, 0.22);
-            background-image:
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 27px,
-                    rgba(242, 238, 232, 0.04) 27px,
-                    rgba(242, 238, 232, 0.04) 28px
-                );
-        }
-
-        /* Soft dusk paper — tinted but desaturated (no neon) */
-        [data-theme="dark"] .memory-card:nth-child(1) { background-color: #4A4246; border-color: rgba(168, 150, 154, 0.28); }
-        [data-theme="dark"] .memory-card:nth-child(2) { background-color: #43484C; border-color: rgba(160, 170, 178, 0.26); }
-        [data-theme="dark"] .memory-card:nth-child(3) { background-color: #4A4740; border-color: rgba(170, 162, 140, 0.28); }
-        [data-theme="dark"] .memory-card:nth-child(4) { background-color: #48453E; border-color: rgba(168, 160, 138, 0.26); }
-        [data-theme="dark"] .memory-card:nth-child(5) { background-color: #45434A; border-color: rgba(158, 154, 168, 0.28); }
-        [data-theme="dark"] .memory-card:nth-child(6) { background-color: #40464A; border-color: rgba(150, 164, 174, 0.28); }
-
-        [data-theme="dark"] .memory-card::after {
-            background: linear-gradient(100deg, rgba(120, 132, 142, 0.45), rgba(110, 118, 128, 0.35));
-            border-color: rgba(200, 206, 212, 0.2);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-        }
-
-        [data-theme="dark"] .memory-card:nth-child(2)::after {
-            background: linear-gradient(100deg, rgba(118, 132, 126, 0.4), rgba(120, 132, 142, 0.35));
-        }
-
-        [data-theme="dark"] .memory-card:nth-child(3)::after {
-            background: linear-gradient(100deg, rgba(140, 132, 112, 0.42), rgba(120, 124, 128, 0.32));
-        }
-
-        [data-theme="dark"] .memory-card:nth-child(5)::after {
-            background: linear-gradient(100deg, rgba(128, 124, 140, 0.4), rgba(130, 122, 128, 0.32));
-        }
-
-        [data-theme="dark"] .memory-card:nth-child(6)::after {
-            background: linear-gradient(100deg, rgba(112, 128, 138, 0.4), rgba(118, 130, 126, 0.32));
-        }
-
-        [data-theme="dark"] .memory-card h4 {
-            border-bottom-color: rgba(200, 206, 212, 0.2);
-            color: var(--dream-muted-text);
-        }
-
-        [data-theme="dark"] .memory-card:hover {
-            box-shadow: 2px 6px 0 rgba(0, 0, 0, 0.22), 0 14px 28px rgba(16, 22, 28, 0.4);
-        }
-
-        [data-theme="dark"] .memory-card a:hover {
-            background: rgba(170, 185, 198, 0.18);
-        }
-
-        .memory-card::before {
-            content: attr(data-chapter);
-            position: absolute;
-            top: 14px;
-            right: 14px;
-            font-family: "VT323", monospace;
-            font-size: 0.78rem;
-            letter-spacing: 0.1em;
-            color: var(--dream-muted-text);
-            opacity: 0.55;
-        }
-
-        .memory-card h4 {
-            font-family: "Cinzel", serif;
-            font-size: 1.05rem;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
-            border-bottom: 2px dashed rgba(90, 95, 105, 0.35);
-            color: var(--dream-dusk);
-            letter-spacing: 0.06em;
-        }
-
-        .memory-card p {
-            font-family: "Crafty Girls", cursive;
-            font-size: 1.08rem;
-            line-height: 1.45;
-            color: var(--dream-ink);
-        }
-
-        .memory-card a {
-            color: var(--dream-dusk);
-            font-weight: 600;
-            text-underline-offset: 3px;
-        }
-
-        .memory-card a:hover {
-            background: rgba(189, 214, 225, 0.4);
-        }
-
-        .memory-card:hover {
-            box-shadow: var(--btn-glow-strong), var(--shadow-lift);
-            z-index: 5;
-        }
-
-        .memory-card:nth-child(1):hover { transform: rotate(-1deg) translateY(-4px); }
-        .memory-card:nth-child(2):hover { transform: rotate(0.5deg) translateY(-4px); }
-        .memory-card:nth-child(3):hover { transform: rotate(-0.5deg) translateY(-4px); }
-        .memory-card:nth-child(4):hover { transform: rotate(1deg) translateY(-4px); }
-        .memory-card:nth-child(5):hover { transform: rotate(-0.8deg) translateY(-4px); }
-        .memory-card:nth-child(6):hover { transform: rotate(0.4deg) translateY(-4px); }
-
-        .section-block--notes {
-            position: relative;
-        }
-
         /* ---------- Scroll reveal ---------- */
         .reveal-on-scroll {
             opacity: 0;
@@ -806,17 +589,13 @@
             filter: blur(0);
         }
 
-        .reveal-on-scroll .project-card,
-        .reveal-on-scroll .memory-card {
+        .reveal-on-scroll .project-card {
             opacity: 0;
+            transform: translateY(28px) scale(0.98);
             transition:
                 opacity 0.85s ease,
                 transform 0.85s ease,
                 box-shadow var(--transition-mid) ease;
-        }
-
-        .reveal-on-scroll .project-card {
-            transform: translateY(28px) scale(0.98);
         }
 
         .reveal-on-scroll .project-card:nth-child(1) { transition-delay: 0.08s; }
@@ -827,20 +606,6 @@
             opacity: 1;
             transform: translateY(0) scale(1);
         }
-
-        .reveal-on-scroll .memory-card:nth-child(1) { transform: translateY(28px) rotate(-2.2deg); transition-delay: 0.05s; }
-        .reveal-on-scroll .memory-card:nth-child(2) { transform: translateY(28px) rotate(1.6deg); transition-delay: 0.12s; }
-        .reveal-on-scroll .memory-card:nth-child(3) { transform: translateY(28px) rotate(-1.4deg); transition-delay: 0.18s; }
-        .reveal-on-scroll .memory-card:nth-child(4) { transform: translateY(28px) rotate(2deg); transition-delay: 0.24s; }
-        .reveal-on-scroll .memory-card:nth-child(5) { transform: translateY(28px) rotate(-1.8deg); transition-delay: 0.3s; }
-        .reveal-on-scroll .memory-card:nth-child(6) { transform: translateY(28px) rotate(1.2deg); transition-delay: 0.36s; }
-
-        .reveal-on-scroll.is-visible .memory-card:nth-child(1) { opacity: 1; transform: rotate(-2.2deg); }
-        .reveal-on-scroll.is-visible .memory-card:nth-child(2) { opacity: 1; transform: rotate(1.6deg); }
-        .reveal-on-scroll.is-visible .memory-card:nth-child(3) { opacity: 1; transform: rotate(-1.4deg); }
-        .reveal-on-scroll.is-visible .memory-card:nth-child(4) { opacity: 1; transform: rotate(2deg); }
-        .reveal-on-scroll.is-visible .memory-card:nth-child(5) { opacity: 1; transform: rotate(-1.8deg); }
-        .reveal-on-scroll.is-visible .memory-card:nth-child(6) { opacity: 1; transform: rotate(1.2deg); }
 
         /* ---------- Footer ---------- */
         footer {
@@ -887,24 +652,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .notes-board {
-                grid-template-columns: 1fr;
-            }
-
-            .memory-card:nth-child(n) {
-                margin-top: 0;
-                transform: rotate(0deg);
-            }
-
-            .reveal-on-scroll .memory-card:nth-child(n),
-            .reveal-on-scroll.is-visible .memory-card:nth-child(n) {
-                transform: none;
-            }
-
-            .memory-card:nth-child(n):hover {
-                transform: translateY(-4px);
-            }
-
             .hero-name {
                 font-size: clamp(4.2rem, 18vw, 6.5rem);
             }
@@ -934,12 +681,367 @@
             }
 
             .reveal-on-scroll,
-            .reveal-on-scroll .project-card,
-            .reveal-on-scroll .memory-card {
+            .reveal-on-scroll .project-card {
                 opacity: 1 !important;
                 transform: none !important;
                 filter: none !important;
                 transition: none !important;
+            }
+        }
+
+        /* =========================================================
+           DOODLE DIRECTORY — cat-along-the-yarn site map
+           Tweak guide (search these comments):
+           - PATH SHAPE: SVG .doodle-path--desktop / --mobile `d` attrs
+           - STOP POSITIONS: data-stop="0–1" on each .doodle-stop link
+           - TRAVEL SPEED: --doodle-travel-ms (CSS) + DURATION in JS
+           - CAT SIZE: --doodle-cat-size
+           - YARN LOOK: stroke / stroke-dasharray on .doodle-yarn
+           ========================================================= */
+        .doodle-directory {
+            --doodle-travel-ms: 520ms;
+            --doodle-cat-size: 104px;
+            --doodle-ink: var(--dream-dusk);
+            --doodle-yarn: rgba(200, 140, 155, 0.95);
+            --doodle-yarn-soft: rgba(134, 184, 211, 0.45);
+            margin-top: 12px;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 20;
+        }
+
+        .doodle-directory .section-title {
+            margin-bottom: 6px;
+        }
+
+        .doodle-hint {
+            font-family: "Crafty Girls", cursive;
+            font-size: 1.08rem;
+            color: var(--dream-muted-text);
+            margin: 0 0 18px;
+            letter-spacing: 0.02em;
+        }
+
+        .doodle-stage {
+            position: relative;
+            width: 100%;
+            max-width: 980px;
+            margin: 0 auto;
+            height: clamp(300px, 42vw, 400px);
+            isolation: isolate;
+        }
+
+        .doodle-path-svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+            pointer-events: none;
+        }
+
+        /* Layered yarn: matte rope + thread lines (no glow) */
+        .doodle-yarn-core {
+            fill: none;
+            stroke: #F0C9D3;
+            stroke-width: 9;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            opacity: 0.95;
+        }
+
+        .doodle-yarn-shade {
+            fill: none;
+            stroke: #E0A8B6;
+            stroke-width: 5.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            opacity: 0.4;
+        }
+
+        .doodle-yarn-thread {
+            fill: none;
+            stroke: #D48A9C;
+            stroke-width: 1.3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 5 7 2 6;
+            opacity: 0.45;
+        }
+
+        .doodle-yarn-thread-lite {
+            fill: none;
+            stroke: #F8E4E9;
+            stroke-width: 1.05;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 3 8 5 5;
+            opacity: 0.65;
+        }
+
+        /* Soft outer haze removed — kept as no-op so old markup stays harmless */
+        .doodle-yarn-fuzz {
+            display: none;
+        }
+
+        .doodle-path-svg--mobile { display: none; }
+
+        .doodle-cat {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: var(--doodle-cat-size);
+            height: var(--doodle-cat-size);
+            margin-left: calc(var(--doodle-cat-size) / -2);
+            margin-top: calc(var(--doodle-cat-size) / -2);
+            z-index: 4;
+            pointer-events: none;
+            will-change: transform;
+            transform: translate(0, 0) rotate(0deg) scale(1, 1);
+            filter: drop-shadow(1px 3px 0 rgba(90, 70, 80, 0.12));
+        }
+
+        .doodle-cat img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            user-select: none;
+            /* Soft handmade edge — keep the photo recognisable */
+            filter: contrast(1.04) saturate(1.06);
+        }
+
+        .doodle-cat.is-traveling {
+            animation: doodle-squash var(--doodle-travel-ms) ease;
+        }
+
+        .doodle-cat.is-traveling .doodle-motion-lines {
+            opacity: 0.7;
+        }
+
+        .doodle-cat.is-settling {
+            animation: doodle-wobble 0.55s ease;
+        }
+
+        .doodle-motion-lines {
+            position: absolute;
+            left: -14px;
+            top: 28%;
+            width: 16px;
+            height: 40%;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            pointer-events: none;
+        }
+
+        .doodle-motion-lines::before,
+        .doodle-motion-lines::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 12px;
+            height: 2px;
+            background: rgba(180, 130, 145, 0.55);
+            border-radius: 2px;
+            transform: rotate(-12deg);
+        }
+
+        .doodle-motion-lines::before { top: 20%; width: 10px; }
+        .doodle-motion-lines::after { top: 55%; width: 14px; transform: rotate(-18deg); }
+
+        @keyframes doodle-squash {
+            0% { filter: drop-shadow(1px 3px 0 rgba(90, 70, 80, 0.12)); }
+            35% { /* squash applied via JS scale — keep glow soft */ }
+            100% { filter: drop-shadow(1px 3px 0 rgba(90, 70, 80, 0.12)); }
+        }
+
+        @keyframes doodle-wobble {
+            0% { transform: translate(var(--dx, 0), var(--dy, 0)) rotate(var(--rot, 0deg)) scale(1, 1); }
+            25% { transform: translate(var(--dx, 0), var(--dy, 0)) rotate(calc(var(--rot, 0deg) - 6deg)) scale(1.05, 0.94); }
+            55% { transform: translate(var(--dx, 0), var(--dy, 0)) rotate(calc(var(--rot, 0deg) + 5deg)) scale(0.96, 1.05); }
+            100% { transform: translate(var(--dx, 0), var(--dy, 0)) rotate(var(--rot, 0deg)) scale(1, 1); }
+        }
+
+        .doodle-stops {
+            position: absolute;
+            inset: 0;
+            z-index: 6;
+        }
+
+        .doodle-yarn-balls {
+            position: absolute;
+            inset: 0;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        /* Single yarn ball that rolls ahead of the cat on the path */
+        .doodle-yarn-ball {
+            position: absolute;
+            width: 88px;
+            height: 88px;
+            margin-left: -44px;
+            margin-top: -44px;
+            background: url("assets/yarn-ball.png") center / contain no-repeat;
+            filter: drop-shadow(1px 2px 2px rgba(90, 70, 80, 0.2));
+            opacity: 1;
+            visibility: visible;
+            will-change: transform, left, top;
+            transform: rotate(0deg);
+            transition: none;
+        }
+
+        .doodle-stop {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            font-family: "Crafty Girls", cursive;
+            font-size: clamp(1.05rem, 2.1vw, 1.28rem);
+            color: var(--doodle-ink);
+            text-decoration: none;
+            padding: 6px 2px 5px;
+            line-height: 1.15;
+            white-space: nowrap;
+            border-radius: 0;
+            background: transparent;
+            border-bottom: none;
+            transition:
+                color 0.2s ease,
+                transform 0.2s ease,
+                letter-spacing 0.2s ease,
+                opacity 0.2s ease;
+        }
+
+        .doodle-stop:hover,
+        .doodle-stop:focus-visible,
+        .doodle-stop.is-active {
+            color: var(--dream-ink);
+            background: transparent;
+            text-shadow: none;
+            filter: none;
+            outline: none;
+            opacity: 1;
+        }
+
+        .doodle-stop:focus-visible {
+            outline: 2px solid var(--focus-ring);
+            outline-offset: 3px;
+        }
+
+        .doodle-stop:hover {
+            transform: translate(-50%, -50%) rotate(-1.5deg) scale(1.06);
+            letter-spacing: 0.02em;
+        }
+
+        .doodle-stop.is-active {
+            transform: translate(-50%, -50%) rotate(1deg) scale(1.04);
+        }
+
+        /* Simple default cursor in this section — less distracting than yarn/cat */
+        @media (hover: hover) and (pointer: fine) {
+            html.has-dream-cursor .doodle-directory,
+            html.has-dream-cursor .doodle-directory * {
+                cursor: auto;
+            }
+
+            html.has-dream-cursor .doodle-directory .doodle-stop,
+            html.has-dream-cursor .doodle-directory a {
+                cursor: pointer;
+            }
+        }
+
+        [data-theme="dark"] .doodle-yarn-core {
+            stroke: #E0B0BC;
+            opacity: 0.8;
+        }
+
+        [data-theme="dark"] .doodle-yarn-shade {
+            stroke: #C48898;
+        }
+
+        [data-theme="dark"] .doodle-yarn-thread {
+            stroke: #E8C0CB;
+            opacity: 0.4;
+        }
+
+        [data-theme="dark"] .doodle-yarn-thread-lite {
+            stroke: #F2D8DF;
+            opacity: 0.35;
+        }
+
+        [data-theme="dark"] .doodle-stop {
+            color: var(--dream-muted-text);
+        }
+
+        [data-theme="dark"] .doodle-stop:hover,
+        [data-theme="dark"] .doodle-stop:focus-visible,
+        [data-theme="dark"] .doodle-stop.is-active {
+            background: transparent;
+            text-shadow: none;
+            color: var(--dream-ink);
+        }
+
+        @media (max-width: 720px) {
+            .doodle-stage {
+                height: min(78vh, 620px);
+                max-width: 420px;
+            }
+
+            .doodle-path-svg--desktop { display: none; }
+            .doodle-path-svg--mobile { display: block; }
+
+            .doodle-directory {
+                --doodle-cat-size: 88px;
+            }
+
+            .doodle-stop {
+                font-size: 1.12rem;
+            }
+
+            .doodle-yarn-ball {
+                width: 72px;
+                height: 72px;
+                margin-left: -36px;
+                margin-top: -36px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .doodle-path-svg,
+            .doodle-cat,
+            .doodle-hint,
+            .doodle-yarn-balls {
+                display: none !important;
+            }
+
+            .doodle-stage {
+                height: auto;
+                max-width: none;
+            }
+
+            .doodle-stops {
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px 14px;
+                justify-content: center;
+            }
+
+            .doodle-stop,
+            .doodle-stop:hover,
+            .doodle-stop.is-active {
+                position: static;
+                transform: none;
+                border: 1.5px dashed rgba(180, 140, 155, 0.45);
+                border-radius: 4px;
+                background: rgba(255, 255, 255, 0.4);
+                padding: 8px 12px;
+                text-shadow: none;
+                filter: none;
+            }
+
+            .doodle-cat.is-traveling,
+            .doodle-cat.is-settling {
+                animation: none !important;
             }
         }
     </style>
@@ -1044,44 +1146,71 @@
             </div>
         </section>
 
-        <section class="section-block section-block--notes reveal-on-scroll" aria-labelledby="behind-title">
-            <h2 class="section-title" id="behind-title">
+        <!--
+          DOODLE DIRECTORY
+          Cat image: assets/doodle-cat.png
+          To swap the cat art, replace that file (transparent PNG works best)
+          or change the <img src="..."> below.
+        -->
+        <section class="section-block doodle-directory reveal-on-scroll" aria-labelledby="doodle-dir-title">
+            <h2 class="section-title" id="doodle-dir-title">
                 <span class="pixel-label">CHAPTER 02</span>
-                Behind the Pages
+                A Little Directory
             </h2>
-            <div class="section-path" aria-hidden="true"></div>
+            <p class="doodle-hint">the little cat will follow the yarn — click a stop to say hello</p>
 
-            <div class="notes-board">
+            <div class="doodle-stage" data-doodle-nav>
+                <svg class="doodle-path-svg doodle-path-svg--desktop" viewBox="0 0 1000 320" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                    <!-- PATH SHAPE (desktop): same `d` on every layer — edit all together -->
+                    <path class="doodle-yarn-fuzz"
+                          d="M 40 160 C 120 70, 200 250, 280 160 S 440 70, 520 160 S 680 250, 760 160 S 880 70, 960 160" />
+                    <path class="doodle-yarn-core"
+                          d="M 40 160 C 120 70, 200 250, 280 160 S 440 70, 520 160 S 680 250, 760 160 S 880 70, 960 160" />
+                    <path class="doodle-yarn-shade"
+                          d="M 40 160 C 120 70, 200 250, 280 160 S 440 70, 520 160 S 680 250, 760 160 S 880 70, 960 160" />
+                    <path class="doodle-yarn-thread"
+                          d="M 40 160 C 120 70, 200 250, 280 160 S 440 70, 520 160 S 680 250, 760 160 S 880 70, 960 160" />
+                    <path class="doodle-yarn-thread-lite" id="doodle-yarn-desktop"
+                          d="M 40 160 C 120 70, 200 250, 280 160 S 440 70, 520 160 S 680 250, 760 160 S 880 70, 960 160" />
+                </svg>
 
-                <div class="memory-card" data-chapter="01">
-                    <h4>Midnight Rations</h4>
-                    <p><strong>Carbonara Buldak Noodles</strong> (strictly half-spice, for survival). But when homesickness strikes, the only cure is chewy Southeast Chinese magic: Sticky Rice (糯米飯) and sweet Osmanthus Rice Cake (桂花炒年糕).</p>
+                <svg class="doodle-path-svg doodle-path-svg--mobile" viewBox="0 0 360 720" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                    <!-- PATH SHAPE (mobile): vertical squiggle -->
+                    <path class="doodle-yarn-fuzz"
+                          d="M 180 36 C 48 110, 310 170, 170 250 S 42 370, 190 450 S 320 560, 150 640 S 60 700, 200 690" />
+                    <path class="doodle-yarn-core"
+                          d="M 180 36 C 48 110, 310 170, 170 250 S 42 370, 190 450 S 320 560, 150 640 S 60 700, 200 690" />
+                    <path class="doodle-yarn-shade"
+                          d="M 180 36 C 48 110, 310 170, 170 250 S 42 370, 190 450 S 320 560, 150 640 S 60 700, 200 690" />
+                    <path class="doodle-yarn-thread"
+                          d="M 180 36 C 48 110, 310 170, 170 250 S 42 370, 190 450 S 320 560, 150 640 S 60 700, 200 690" />
+                    <path class="doodle-yarn-thread-lite" id="doodle-yarn-mobile"
+                          d="M 180 36 C 48 110, 310 170, 170 250 S 42 370, 190 450 S 320 560, 150 640 S 60 700, 200 690" />
+                </svg>
+
+                <div class="doodle-cat" id="doodle-cat" aria-hidden="true">
+                    <!-- CAT IMAGE: replace src to use a different puppet asset -->
+                    <img src="assets/doodle-cat.png" alt="" width="1024" height="1024" decoding="async">
+                    <span class="doodle-motion-lines" aria-hidden="true"></span>
                 </div>
 
-                <div class="memory-card" data-chapter="02">
-                    <h4>The Setting (Why London?)</h4>
-                    <p>Because it is a vibrant, buzzing labyrinth where anyone can be anything without judgment. Every street corner is a beautiful collision of cultures, architecture, and histories coexisting in one space. It is the city that built my psychology foundation, and the perfect backdrop for someone who thrives on diverse energy.</p>
+                <!-- Lead yarn ball rolls ahead of the cat on the path -->
+                <div class="doodle-yarn-balls" aria-hidden="true">
+                    <span class="doodle-yarn-ball" id="doodle-lead-ball"></span>
                 </div>
 
-                <div class="memory-card" data-chapter="03">
-                    <h4>The Core Spark</h4>
-                    <p>Whether through clinical psychology, web development, interactive words, or art, my ultimate goal is to connect with people. As an INFP, I try to find meaning in every fleeting moment of learning and experiencing.</p>
-                </div>
-
-                <div class="memory-card" data-chapter="04">
-                    <h4>Off-Screen Quests</h4>
-                    <p>Solo-travelling the globe, cooking, and singing. Digitally, you'll find me playing LOL (a dedicated Katarina main and I only play cutesy champs :p) while rewatching <em>Arcane</em>. I also love to sketch—<a href="art.html">you can peek at my drawings here!</a></p>
-                </div>
-
-                <div class="memory-card" data-chapter="05">
-                    <h4>Unpopular Lore</h4>
-                    <p>I actually deeply appreciate the "lows" in life. As difficult as they are to bear in the moment, they are the necessary shadows that make the "highs" so incredibly meaningful and bright.</p>
-                </div>
-
-                <div class="memory-card" data-chapter="06">
-                    <h4>Trivial Superpower</h4>
-                    <p><strong>Speed-run Face Recognition.</strong> I once memorised ten babies' faces and names within 15 minutes of meeting them unintentionally. Also equipped with max-level spontaneity.</p>
-                </div>
+                <!--
+                  STOP POSITIONS: data-stop is 0→1 along the yarn (evenly spaced).
+                  data-side="above|below" nudges the label off the path.
+                -->
+                <nav class="doodle-stops" aria-label="Site directory">
+                    <a class="doodle-stop" href="/" data-stop="0.08" data-side="above">Home</a>
+                    <a class="doodle-stop" href="/about/" data-stop="0.24" data-side="below">About</a>
+                    <a class="doodle-stop" href="#works" data-stop="0.40" data-side="above" data-offset="-68">Projects</a>
+                    <a class="doodle-stop" href="/blog/" data-stop="0.56" data-side="below">Blog</a>
+                    <a class="doodle-stop" href="art.html" data-stop="0.72" data-side="above">Art</a>
+                    <a class="doodle-stop" href="privacy.html" data-stop="0.88" data-side="below">Privacy</a>
+                </nav>
             </div>
         </section>
 
@@ -1123,6 +1252,265 @@
                 });
             }, { threshold: 0.18, rootMargin: "0px 0px -8% 0px" });
             nodes.forEach(function (el) { observer.observe(el); });
+        })();
+
+        /* ---------- Doodle directory: cat follows mouse along the yarn ---------- */
+        (function () {
+            var stage = document.querySelector("[data-doodle-nav]");
+            if (!stage) return;
+
+            var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+            var cat = document.getElementById("doodle-cat");
+            var leadBall = document.getElementById("doodle-lead-ball");
+            var stops = Array.prototype.slice.call(stage.querySelectorAll(".doodle-stop"));
+            // How closely the cat eases toward the aim point (lower = slower / less twitchy)
+            var FOLLOW = 0.07;
+            // How quickly the aim point itself follows the mouse (lower = less sensitive)
+            var TARGET_SMOOTH = 0.08;
+            // Ignore the pointer unless it’s within this many px of the yarn
+            var PATH_GRAB = 72;
+            // How far ahead of the cat the yarn ball sits (0–1 along path)
+            var LEAD = 0.15;
+            // Highlight a stop when the cat is this close
+            var STOP_NEAR = 0.045;
+            var currentT = 0.08;
+            var targetT = currentT;
+            var aimT = currentT;
+            var ballT = currentT + LEAD;
+            var ballRot = 0;
+            var rafId = 0;
+            var running = false;
+            var pathCache = null;
+
+            function activePath() {
+                var mobile = window.matchMedia("(max-width: 720px)").matches;
+                return document.getElementById(mobile ? "doodle-yarn-mobile" : "doodle-yarn-desktop");
+            }
+
+            function clamp01(n) {
+                return Math.max(0, Math.min(1, n));
+            }
+
+            function svgPointToStage(path, lengthAlong) {
+                var svg = path.ownerSVGElement;
+                var pt = path.getPointAtLength(lengthAlong);
+                var ctm = path.getScreenCTM();
+                if (!ctm) return { x: 0, y: 0, angle: 0, tx: 1, ty: 0 };
+
+                var screen = svg.createSVGPoint();
+                screen.x = pt.x;
+                screen.y = pt.y;
+                var abs = screen.matrixTransform(ctm);
+                var stageRect = stage.getBoundingClientRect();
+
+                var look = Math.min(path.getTotalLength(), lengthAlong + 12);
+                var pt2 = path.getPointAtLength(look);
+                var screen2 = svg.createSVGPoint();
+                screen2.x = pt2.x;
+                screen2.y = pt2.y;
+                var abs2 = screen2.matrixTransform(ctm);
+                var dx = abs2.x - abs.x;
+                var dy = abs2.y - abs.y;
+                var len = Math.hypot(dx, dy) || 1;
+                var tx = dx / len;
+                var ty = dy / len;
+                var angle = Math.atan2(dy, dx) * (180 / Math.PI);
+                angle = Math.max(-16, Math.min(16, angle * 0.32));
+
+                return {
+                    x: abs.x - stageRect.left,
+                    y: abs.y - stageRect.top,
+                    angle: angle,
+                    tx: tx,
+                    ty: ty
+                };
+            }
+
+            // Sample path into stage-space points once per layout (for fast nearest lookup)
+            function rebuildCache() {
+                var path = activePath();
+                if (!path) {
+                    pathCache = null;
+                    return;
+                }
+                var total = path.getTotalLength();
+                var samples = [];
+                var steps = 120;
+                for (var i = 0; i <= steps; i++) {
+                    var along = (i / steps) * total;
+                    var pos = svgPointToStage(path, along);
+                    samples.push({ t: i / steps, x: pos.x, y: pos.y });
+                }
+                pathCache = { path: path, total: total, samples: samples };
+            }
+
+            function nearestOnPath(stageX, stageY) {
+                if (!pathCache) return { t: currentT, dist: Infinity };
+                var best = 0;
+                var bestDist = Infinity;
+                var samples = pathCache.samples;
+                for (var i = 0; i < samples.length; i++) {
+                    var s = samples[i];
+                    var d = (s.x - stageX) * (s.x - stageX) + (s.y - stageY) * (s.y - stageY);
+                    if (d < bestDist) {
+                        bestDist = d;
+                        best = s.t;
+                    }
+                }
+                return { t: best, dist: Math.sqrt(bestDist) };
+            }
+
+            function placeCat(t, traveling) {
+                var path = activePath();
+                if (!path || !cat) return;
+                var len = path.getTotalLength();
+                var along = clamp01(t) * len;
+                var pos = svgPointToStage(path, along);
+
+                var a = path.getPointAtLength(along);
+                var b = path.getPointAtLength(Math.min(len, along + 14));
+                var facingLeft = b.x < a.x;
+
+                var sx = traveling ? 1.06 : 1;
+                var sy = traveling ? 0.92 : 1;
+                if (facingLeft) sx *= -1;
+
+                cat.style.setProperty("--dx", pos.x + "px");
+                cat.style.setProperty("--dy", pos.y + "px");
+                cat.style.setProperty("--rot", pos.angle + "deg");
+                cat.style.transform =
+                    "translate(" + pos.x + "px, " + pos.y + "px) rotate(" + pos.angle + "deg) scale(" + sx + ", " + sy + ")";
+            }
+
+            function placeLeadBall(t) {
+                var path = activePath();
+                if (!path || !leadBall) return;
+                var len = path.getTotalLength();
+                var along = clamp01(t) * len;
+                var pos = svgPointToStage(path, along);
+                leadBall.style.left = pos.x + "px";
+                leadBall.style.top = pos.y + "px";
+                leadBall.style.transform = "rotate(" + ballRot + "deg)";
+            }
+
+            function placeStops() {
+                if (reduceMotion.matches) return;
+                var path = activePath();
+                if (!path) return;
+                var len = path.getTotalLength();
+                stops.forEach(function (link) {
+                    var t = clamp01(parseFloat(link.getAttribute("data-stop") || "0"));
+                    var pos = svgPointToStage(path, t * len);
+                    var side = link.getAttribute("data-side") || "above";
+                    var custom = link.getAttribute("data-offset");
+                    var offset = custom
+                        ? parseFloat(custom)
+                        : (side === "below" ? 84 : -90);
+                    link.style.left = pos.x + "px";
+                    link.style.top = (pos.y + offset) + "px";
+                });
+            }
+
+            function updateNearState() {
+                stops.forEach(function (link) {
+                    var t = clamp01(parseFloat(link.getAttribute("data-stop") || "0"));
+                    link.classList.toggle("is-active", Math.abs(currentT - t) < STOP_NEAR);
+                });
+            }
+
+            function tick() {
+                // Ease aim toward the smoothed mouse target first (low sensitivity)
+                aimT += (targetT - aimT) * TARGET_SMOOTH;
+                var diff = aimT - currentT;
+                if (Math.abs(diff) > 0.00035 || Math.abs(targetT - aimT) > 0.00035) {
+                    currentT += diff * FOLLOW;
+                    var dir = diff >= 0 ? 1 : -1;
+                    if (Math.abs(diff) < 0.00035) dir = 1;
+                    var leadTarget = clamp01(currentT + dir * LEAD);
+                    ballT += (leadTarget - ballT) * 0.22;
+                    ballRot += (leadTarget - ballT) * 320;
+                    placeCat(currentT, Math.abs(diff) > 0.001);
+                    placeLeadBall(ballT);
+                    if (Math.abs(diff) > 0.001) cat.classList.add("is-traveling");
+                    else cat.classList.remove("is-traveling");
+                    running = true;
+                    updateNearState();
+                    rafId = requestAnimationFrame(tick);
+                } else {
+                    currentT = aimT;
+                    ballT += (clamp01(currentT + LEAD) - ballT) * 0.28;
+                    placeCat(currentT, false);
+                    placeLeadBall(ballT);
+                    cat.classList.remove("is-traveling");
+                    updateNearState();
+                    if (Math.abs(ballT - clamp01(currentT + LEAD)) > 0.001) {
+                        rafId = requestAnimationFrame(tick);
+                    } else {
+                        running = false;
+                        rafId = 0;
+                    }
+                }
+            }
+
+            function ensureTick() {
+                if (!running && !reduceMotion.matches) {
+                    running = true;
+                    rafId = requestAnimationFrame(tick);
+                }
+            }
+
+            function onPointerMove(e) {
+                if (reduceMotion.matches) return;
+                var rect = stage.getBoundingClientRect();
+                var x = e.clientX - rect.left;
+                var y = e.clientY - rect.top;
+                var hit = nearestOnPath(x, y);
+                // Only react when the pointer is near the yarn itself
+                if (hit.dist > PATH_GRAB) return;
+                targetT = hit.t;
+                ensureTick();
+            }
+
+            function bindStops() {
+                stops.forEach(function (link) {
+                    // Focus still snaps the cat for keyboard users
+                    link.addEventListener("focus", function () {
+                        targetT = clamp01(parseFloat(link.getAttribute("data-stop") || "0"));
+                        ensureTick();
+                    });
+                });
+            }
+
+            function layout() {
+                rebuildCache();
+                placeStops();
+                ballT = clamp01(currentT + LEAD);
+                placeCat(currentT, false);
+                placeLeadBall(ballT);
+                updateNearState();
+            }
+
+            function init() {
+                if (reduceMotion.matches) return;
+                bindStops();
+                stage.addEventListener("pointermove", onPointerMove, { passive: true });
+                stage.addEventListener("pointerdown", onPointerMove, { passive: true });
+                layout();
+            }
+
+            var resizeTimer = 0;
+            window.addEventListener("resize", function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(layout, 80);
+            });
+
+            if (document.readyState === "complete") {
+                requestAnimationFrame(init);
+            } else {
+                window.addEventListener("load", function () {
+                    requestAnimationFrame(init);
+                });
+            }
         })();
     </script>
 

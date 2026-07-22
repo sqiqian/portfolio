@@ -39,7 +39,7 @@
         body > * { position: relative; z-index: 1; }
 
         .about-container {
-            max-width: 780px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
@@ -77,6 +77,9 @@
 
         .about-letter {
             position: relative;
+            max-width: 780px;
+            margin-left: auto;
+            margin-right: auto;
             background-color: #F7E8E4;
             background-image:
                 radial-gradient(ellipse 70% 50% at 12% 8%, rgba(213, 163, 173, 0.28), transparent 60%),
@@ -247,6 +250,199 @@
             background: rgba(255, 255, 255, 0.7);
         }
 
+        /* ---------- Behind the pages ---------- */
+        .behind-header {
+            text-align: center;
+            margin-top: 72px;
+            margin-bottom: 36px;
+        }
+
+        .behind-header .pixel-label {
+            margin-bottom: 10px;
+            opacity: 0.55;
+        }
+
+        .behind-header h2 {
+            font-family: "Crafty Girls", cursive;
+            font-size: clamp(2.2rem, 5.5vw, 3.2rem);
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            text-transform: none;
+            color: var(--dream-ink);
+            transform: rotate(1.2deg);
+            margin-bottom: 6px;
+        }
+
+        .behind-header .header-note {
+            font-family: "Crafty Girls", cursive;
+            font-size: 1.1rem;
+            color: var(--dream-dusk);
+            transform: rotate(-0.6deg);
+            display: inline-block;
+        }
+
+        .behind-notes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px 22px;
+            align-items: start;
+            padding: 12px 0 8px;
+        }
+
+        .behind-note {
+            position: relative;
+            min-height: 230px;
+            background-color: #F0D4D9;
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 27px,
+                    rgba(90, 95, 105, 0.06) 27px,
+                    rgba(90, 95, 105, 0.06) 28px
+                );
+            border: 2px solid rgba(150, 110, 120, 0.45);
+            border-radius: 3px 14px 4px 12px / 8px 3px 16px 5px;
+            padding: 34px 22px 24px;
+            box-shadow:
+                3px 5px 0 rgba(90, 95, 105, 0.08),
+                0 12px 26px rgba(63, 70, 82, 0.12);
+            transform: rotate(-2.2deg);
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
+        }
+
+        .behind-note:nth-child(2) {
+            background-color: #F8F4EC;
+            border-color: rgba(120, 115, 140, 0.4);
+            transform: rotate(1.6deg);
+            margin-top: 10px;
+        }
+
+        .behind-note:nth-child(3) {
+            background-color: #F2E4B8;
+            border-color: rgba(160, 140, 90, 0.5);
+            transform: rotate(-1.4deg);
+        }
+
+        .behind-note:nth-child(4) {
+            background-color: #EDE0AE;
+            border-color: rgba(160, 140, 90, 0.45);
+            transform: rotate(2deg);
+            margin-top: 6px;
+        }
+
+        .behind-note:nth-child(5) {
+            background-color: #DDD4E8;
+            border-color: rgba(130, 120, 155, 0.5);
+            transform: rotate(-1.8deg);
+        }
+
+        .behind-note:nth-child(6) {
+            background-color: #CDE0EA;
+            border-color: rgba(100, 140, 165, 0.5);
+            transform: rotate(1.2deg);
+            margin-top: 12px;
+        }
+
+        .behind-note:hover {
+            z-index: 2;
+            box-shadow:
+                2px 6px 0 rgba(90, 95, 105, 0.1),
+                0 14px 28px rgba(63, 70, 82, 0.16);
+        }
+
+        .behind-note:nth-child(1):hover { transform: rotate(-1deg) translateY(-4px); }
+        .behind-note:nth-child(2):hover { transform: rotate(0.5deg) translateY(-4px); }
+        .behind-note:nth-child(3):hover { transform: rotate(-0.5deg) translateY(-4px); }
+        .behind-note:nth-child(4):hover { transform: rotate(1deg) translateY(-4px); }
+        .behind-note:nth-child(5):hover { transform: rotate(-0.8deg) translateY(-4px); }
+        .behind-note:nth-child(6):hover { transform: rotate(0.4deg) translateY(-4px); }
+
+        /* Soft washi tape */
+        .behind-note::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            width: 72px;
+            height: 22px;
+            transform: translateX(-50%) rotate(-2deg);
+            background: linear-gradient(100deg, rgba(189, 214, 225, 0.75), rgba(213, 163, 173, 0.55));
+            border: 1px dashed rgba(90, 95, 105, 0.3);
+            box-shadow: 0 2px 6px rgba(63, 70, 82, 0.1);
+            opacity: 0.95;
+        }
+
+        .behind-note:nth-child(2)::before {
+            background: linear-gradient(100deg, rgba(175, 205, 190, 0.7), rgba(189, 214, 225, 0.65));
+            transform: translateX(-50%) rotate(3deg);
+        }
+
+        .behind-note:nth-child(3)::before {
+            left: 28%;
+            background: linear-gradient(100deg, rgba(223, 197, 143, 0.8), rgba(238, 232, 218, 0.6));
+            transform: translateX(-50%) rotate(4deg);
+        }
+
+        .behind-note:nth-child(4)::before {
+            width: 58px;
+            transform: translateX(-50%) rotate(-5deg);
+        }
+
+        .behind-note:nth-child(5)::before {
+            background: linear-gradient(100deg, rgba(180, 168, 194, 0.75), rgba(213, 163, 173, 0.5));
+            transform: translateX(-50%) rotate(2deg);
+        }
+
+        .behind-note:nth-child(6)::before {
+            left: 62%;
+            background: linear-gradient(100deg, rgba(134, 184, 211, 0.7), rgba(175, 205, 190, 0.55));
+            transform: translateX(-50%) rotate(-3deg);
+        }
+
+        .behind-note .note-num {
+            font-family: "VT323", monospace;
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            color: var(--dream-muted-text);
+            opacity: 0.55;
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            margin: 0;
+        }
+
+        .behind-note h3 {
+            font-family: "Cinzel", serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: none;
+            color: var(--dream-dusk);
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            padding-right: 36px;
+            border-bottom: 2px dashed rgba(90, 95, 105, 0.3);
+        }
+
+        .behind-note p {
+            font-family: "Crafty Girls", cursive;
+            font-size: 1.05rem;
+            line-height: 1.5;
+            color: var(--dream-ink);
+            margin: 0;
+        }
+
+        .behind-note a {
+            color: var(--dream-dusk);
+            text-underline-offset: 3px;
+            font-weight: 600;
+        }
+
+        .behind-note a:hover {
+            background: rgba(189, 214, 225, 0.4);
+        }
+
         [data-theme="dark"] .about-letter {
             background-color: #4A4246;
             background-image:
@@ -293,6 +489,37 @@
             color: rgba(210, 180, 190, 0.4);
         }
 
+        [data-theme="dark"] .behind-note,
+        [data-theme="dark"] .behind-note:nth-child(n) {
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 27px,
+                    rgba(242, 238, 232, 0.04) 27px,
+                    rgba(242, 238, 232, 0.04) 28px
+                );
+            box-shadow: 2px 4px 0 rgba(0, 0, 0, 0.2), 0 10px 22px rgba(16, 22, 28, 0.35);
+        }
+
+        [data-theme="dark"] .behind-note:nth-child(1) { background-color: #4A4246; border-color: rgba(168, 150, 154, 0.28); }
+        [data-theme="dark"] .behind-note:nth-child(2) { background-color: #43484C; border-color: rgba(160, 170, 178, 0.26); }
+        [data-theme="dark"] .behind-note:nth-child(3) { background-color: #4A4740; border-color: rgba(170, 162, 140, 0.28); }
+        [data-theme="dark"] .behind-note:nth-child(4) { background-color: #48453E; border-color: rgba(168, 160, 138, 0.26); }
+        [data-theme="dark"] .behind-note:nth-child(5) { background-color: #45434A; border-color: rgba(158, 154, 168, 0.28); }
+        [data-theme="dark"] .behind-note:nth-child(6) { background-color: #40464A; border-color: rgba(150, 164, 174, 0.28); }
+
+        [data-theme="dark"] .behind-note::before,
+        [data-theme="dark"] .behind-note:nth-child(n)::before {
+            background: linear-gradient(100deg, rgba(120, 132, 142, 0.45), rgba(110, 118, 128, 0.35));
+            border-color: rgba(200, 206, 212, 0.2);
+        }
+
+        [data-theme="dark"] .behind-note h3 {
+            border-bottom-color: rgba(200, 206, 212, 0.2);
+            color: var(--dream-muted-text);
+        }
+
         footer {
             margin-top: 60px;
             padding: 40px 0;
@@ -306,12 +533,34 @@
             letter-spacing: 0.12em;
         }
 
+        @media (max-width: 900px) {
+            .behind-notes {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .about-letter {
                 padding: 44px 22px 32px;
                 transform: none;
             }
-            .about-header h1 { transform: none; }
+
+            .behind-notes {
+                grid-template-columns: 1fr;
+            }
+
+            .behind-note:nth-child(n) {
+                margin-top: 0;
+                transform: none;
+                padding: 32px 22px 24px;
+            }
+
+            .behind-note:nth-child(n):hover {
+                transform: translateY(-4px);
+            }
+
+            .about-header h1,
+            .behind-header h2 { transform: none; }
             .interest-tag,
             .interest-tag:nth-child(even),
             .interest-tag:nth-child(3n) {
@@ -371,6 +620,50 @@
                 <span class="interest-tag">sports</span>
             </div>
         </section>
+
+        <header class="behind-header">
+            <p class="pixel-label">SCRAPBOOK · PAGE 02</p>
+            <h2>behind the pages</h2>
+            <p class="header-note">little bits that didn’t fit on page one</p>
+        </header>
+
+        <div class="behind-notes" aria-label="Behind the pages">
+            <article class="behind-note">
+                <p class="note-num">NOTE · 01</p>
+                <h3>Midnight Rations</h3>
+                <p><strong>Carbonara Buldak Noodles</strong> (strictly half-spice, for survival). But when homesickness strikes, the only cure is chewy Southeast Chinese magic: Sticky Rice (糯米飯) and sweet Osmanthus Rice Cake (桂花炒年糕).</p>
+            </article>
+
+            <article class="behind-note">
+                <p class="note-num">NOTE · 02</p>
+                <h3>The Setting (Why London?)</h3>
+                <p>Because it is a vibrant, buzzing labyrinth where anyone can be anything without judgment. Every street corner is a beautiful collision of cultures, architecture, and histories coexisting in one space. It is the city that built my psychology foundation, and the perfect backdrop for someone who thrives on diverse energy.</p>
+            </article>
+
+            <article class="behind-note">
+                <p class="note-num">NOTE · 03</p>
+                <h3>The Core Spark</h3>
+                <p>Whether through clinical psychology, web development, interactive words, or art, my ultimate goal is to connect with people. As an INFP, I try to find meaning in every fleeting moment of learning and experiencing.</p>
+            </article>
+
+            <article class="behind-note">
+                <p class="note-num">NOTE · 04</p>
+                <h3>Off-Screen Quests</h3>
+                <p>Solo-travelling the globe, cooking, and singing. Digitally, you'll find me playing LOL (a dedicated Katarina main and I only play cutesy champs :p) while rewatching <em>Arcane</em>. I also love to sketch—<a href="/art.html">you can peek at my drawings here!</a></p>
+            </article>
+
+            <article class="behind-note">
+                <p class="note-num">NOTE · 05</p>
+                <h3>Unpopular Lore</h3>
+                <p>I actually deeply appreciate the "lows" in life. As difficult as they are to bear in the moment, they are the necessary shadows that make the "highs" so incredibly meaningful and bright.</p>
+            </article>
+
+            <article class="behind-note">
+                <p class="note-num">NOTE · 06</p>
+                <h3>Trivial Superpower</h3>
+                <p><strong>Speed-run Face Recognition.</strong> I once memorised ten babies' faces and names within 15 minutes of meeting them unintentionally. Also equipped with max-level spontaneity.</p>
+            </article>
+        </div>
 
     </div>
 
